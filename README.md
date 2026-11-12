@@ -142,7 +142,7 @@ $$
 Substituting the inverted operator expression for $\pi$ into the primary boundary discrepancy relation produces the **Master Samuel–Navier–Stokes Closure Equation**:
 
 $$
-\Delta_{(P_{(Square)} - P_{(Circle)})} = \left\{ 4 - \left( 15\sigma \cdot \left( \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r) \, dr \right)^{-1} \right) \right\} \cdot a
+\Delta_{(P_{(Square)} - P_{(Circle)})} = \left\{ 4 - \left( 15\sigma \cdot \left( \int_{0}^{\zeta(s) = -\frac\{1}{12}} r^4 f(r) \, dr \right)^{-1} \right) \right\} \cdot a
 $$
 
 ---
