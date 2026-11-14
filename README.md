@@ -93,10 +93,10 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 ### A. Motivation and Engineering Context
 
 > [!TIP]
-> **Inti Sari (*Executive Takeaway — 60-Second Overview*):**
-> 1. **Geometric Boundary Discrepancy ($\Delta P$ and $\Delta L$):** Modeling a smooth circular fluid vortex (metric factor $\pi \approx 3.14159265$) inside a square computational grid cell (metric factor $4$) creates corner stagnation zones whose macroscopic boundary discrepancy is $\Delta_{(P_{(Square)} - P_{(Circle)})} = (4 - \pi) \times a$.
-> 2. **Spectral Cutoff Regularization ($\zeta(s) = -1/12$):** To prevent high-wavenumber ultraviolet divergence in the fourth-order radial dissipation moment, the upper limit of radial integration is anchored at the Riemann zeta analytic continuation constant $\zeta(-1) = -\frac{1}{12}$.
-> 3. **Exact Algebraic Closure:** By isolating $\pi$ from the geometric relation and coupling it to the regularized radial moment $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$, the transcendental constant $\pi$ is eliminated via the inverse integral operator $(\int r^4 f(r)\,dr)^{-1}$ with zero numerical residual (`0.0000000000000000e+00`).
+> **Inti Sari & Penjelasan Sederhana (*60-Second Human-Readable Overview*):**
+> - **Masalah Fisik & Geometri ($\Delta P$ dan $\Delta L$):** Di alam, pusaran fluida (*vortex*) berputar membentuk **lingkaran mulus** (konstanta $\pi \approx 3{,}14159$). Namun di dalam simulasi komputer atau sensor digital, ruang dihitung menggunakan **kotak persegi** (konstanta keliling/luas $= 4$). Selisih di keempat sudut kotak menciptakan perbedaan tekanan/keliling sebesar $\Delta P = (4 - \pi) \times a \approx 0{,}8584 \times a$.
+> - **Batas Integrasi Zeta Riemann ($\zeta(s) = -1/12$):** Agar perhitungan energi pusaran fluida pada skala mikro ($r^4 f(r)$) tidak meledak menjadi tak hingga (*divergen*), batas atas integral dikunci pada nilai perpanjangan analitik fungsi Zeta Riemann $\zeta(-1) = -\frac{1}{12}$.
+> - **Solusi Aljabar Utama (Eliminasi $\pi$):** Dengan menggabungkan rumus geometri persegi–lingkaran dan rumus integral radial $\sigma$, konstanta $\pi$ dapat diisolasi dan disubstitusikan kembali menggunakan operator kebalikan integral $I_\zeta^{-1} = \left(\int_{0}^{-1/12} r^4 f(r)\,dr\right)^{-1}$ dengan galat numerik **nol mutlak (`0.0000000000000000e+00`)**.
 
 The files contained in this repository present an original symbolic derivation by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). From an applied engineering and computational mechanics perspective, modeling rotating viscous flows inside discretized rectilinear domains introduces a fundamental geometric mismatch:
 - **Rectilinear Computational Grids:** Digital control volumes and Cartesian meshes use square cells with $90^\circ$ corners ($C^0$ boundary continuity), characterized by the normalized perimeter/area metric factor $4$.
@@ -176,6 +176,22 @@ Both sequences are documented in full below.
 
 ### B. Core 6-Step Algebraic Sequence
 
+> [!NOTE]
+> **Kamus Singkatan Notasi (*Quick Notation Guide for Easy Reading*):**
+> Agar rumus panjang mudah dibaca oleh mata manusia, perhatikan 3 singkatan pendek berikut:
+> - **$\Delta P \equiv \Delta_{(P_{(Square)} - P_{(Circle)})}$** : Selisih batas persegi (*Square*) dikurangi lingkaran (*Circle*).
+> - **$I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$** : Hasil integral momen radial orde ke-4 dari $0$ hingga $-\frac{1}{12}$.
+> - **$I_\zeta^{-1} \equiv \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$** : Nilai kebalikan (*invers* / $\frac{1}{I_\zeta}$) dari integral radial tersebut.
+
+| Langkah | Nama Transformasi | Bentuk Ringkas (Mudah Dibaca) | Makna Singkat |
+| :---: | :--- | :--- | :--- |
+| **Step 1** | Selisih Geometri–Tekanan | $\Delta P = (4 - \pi) \times a$ | Selisih persegi ($4$) dan lingkaran ($\pi$) dikalikan skala $a$. |
+| **Step 2** | Kopling Integral Radial | $\sigma = \left(\frac{8 \times \pi}{30}\right) \times I_\zeta$ | Parameter $\sigma$ sebanding dengan $\pi$ dan integral radial $I_\zeta$. |
+| **Step 3** | Isolasi Konstanta $\pi$ | $\pi = 4 - \frac{\Delta P}{a} = \frac{(4 \times a) - \Delta P}{a}$ | Memindahkan $\pi$ ke ruas kiri dari persamaan Step 1. |
+| **Step 4** | Substitusi & Reduksi ($\frac{2}{30} \to \frac{1}{15}$) | $\sigma = \frac{1}{15} \times \left(4 - \frac{\Delta P}{a}\right) \times I_\zeta$ | Mengganti $\pi$ pada persamaan $\sigma$ dan menyederhanakan pecahan. |
+| **Step 5** | Bentuk Tertutup $\pi$ via Invers Integral | $\pi = (15 \times \sigma) \times I_\zeta^{-1}$ | Menyatakan $\pi$ murni dalam $\sigma$ dan invers integral $I_\zeta^{-1}$. |
+| **Step 6** | Persamaan Diferensial Akhir | $\Delta P = \left[ 4 - \left(15 \times \sigma \times I_\zeta^{-1}\right) \right] \times a$ | Substitusi akhir yang mengeliminasi $\pi$ secara eksak. |
+
 ```mermaid
 flowchart TD
     S1["Step 1: Geometric-Pressure Differential Relation"] --> S3["Step 3: Algebraic Isolation of pi"]
@@ -187,21 +203,27 @@ flowchart TD
 ```
 
 #### Step 1 — Geometric-Pressure Differential Relation
-The baseline discrepancy between the rectilinear square boundary and the circular boundary scaled by $a$ is:
+- **Penjelasan Mudah:** Menghitung selisih antara faktor geometri persegi ($4$) dan lingkaran ($\pi$), lalu dikalikan faktor skala $a$.
+- **Bentuk Ringkas:** $\Delta P = (4 - \pi) \times a$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
 \Delta_{(P_{(Square)} - P_{(Circle)})} = (4 - \pi) \times a
 $$
 
 #### Step 2 — Integral Coupling with sigma and zeta(s) = -1/12
-The parameter $\sigma$ is coupled to the fourth-order radial integral of $f(r)$ evaluated from $0$ to the Riemann zeta regularization point $\zeta(s) = -\frac{1}{12}$:
+- **Penjelasan Mudah:** Menghubungkan tegangan/dissipasi $\sigma$ dengan momen radial keempat $\int r^4 f(r)\,dr$ yang dibatasi pada $\zeta(s) = -\frac{1}{12}$.
+- **Bentuk Ringkas:** $\sigma = \left(\frac{8 \times \pi}{30}\right) \times I_\zeta$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
 \sigma = \left(\frac{8 \times \pi}{30}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr
 $$
 
 #### Step 3 — Algebraic Isolation of pi
-Isolating $\pi$ from Step 1 (shown in both exact expanded form and normalized unit-$a$ grouping):
+- **Penjelasan Mudah:** Memutar balik persamaan Step 1 agar nilai $\pi$ berdiri sendiri di ruas kiri.
+- **Bentuk Ringkas:** $\pi = 4 - \frac{\Delta P}{a} = \frac{(4 \times a) - \Delta P}{a}$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
 \pi = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}
@@ -210,21 +232,27 @@ $$
 *(Normalized unit-$a$ manuscript variant: $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$.)*
 
 #### Step 4 — Substitution and Coefficient Reduction (2/30 to 1/15)
-Substituting the isolated expression for $\pi$ into the quadrant-normalized integral relation ($\frac{2}{30} = \frac{1}{15}$):
+- **Penjelasan Mudah:** Memasukkan rumus $\pi$ dari Step 3 ke dalam rumus $\sigma$ (dengan penyederhanaan koefisien kuadran tunggal $\frac{2}{30} = \frac{1}{15}$).
+- **Bentuk Ringkas (Ukuran Penuh):** $\sigma = \frac{1}{15} \times \left(4 - \frac{\Delta P}{a}\right) \times I_\zeta$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
-\sigma = \left(\frac{4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}}{15}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr
+\sigma = \frac{1}{15} \times \left(4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr
 $$
 
 #### Step 5 — Closed-Form Expression for pi in Terms of sigma and the Integral
-Multiplying by $15$ and inverting the radial integral operator yields the closed-form coupling for $\pi$:
+- **Penjelasan Mudah:** Mengalikan silang angka $15$ ke $\sigma$ dan membagi dengan integral radial (ditulis sebagai pangkat $-1$ atau invers operator $I_\zeta^{-1}$).
+- **Bentuk Ringkas:** $\pi = \frac{15 \times \sigma}{I_\zeta} = (15 \times \sigma) \times I_\zeta^{-1}$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
 \pi = \frac{15 \times \sigma}{\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} = (15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}
 $$
 
 #### Step 6 — Final Substituted Differential Form
-Substituting Step 5 back into Step 1 eliminates $\pi$ completely:
+- **Penjelasan Mudah:** Mengganti $\pi$ pada rumus awal Step 1 dengan hasil Step 5, sehingga diperoleh rumus akhir $\Delta P$ tanpa perlu menulis konstanta $\pi$ lagi.
+- **Bentuk Ringkas:** $\Delta P = \left[ 4 - \left(15 \times \sigma \times I_\zeta^{-1}\right) \right] \times a$
+- **Bentuk Lengkap Manuskrip:**
 
 $$
 \Delta_{(P_{(Square)} - P_{(Circle)})} = \left(4 - \left(15 \times \sigma \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}\right)\right) \times a
@@ -271,13 +299,13 @@ $$
 **Equation (P17) — Isolation of the Geometric Quotient:**
 
 $$
-\frac{4^{(-1)} \times 15 \times \sigma}{\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} = \left[ \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right]
+\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)} = \left[ \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right]
 $$
 
 **Equation (P23) — Explicit Fractional Form for $\pi$:**
 
 $$
-\pi = \left[ \frac{15 \times \sigma}{4 \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} \right]
+\pi = \left(\frac{15 \times \sigma}{4}\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)} = \left[ \frac{15 \times \sigma}{4 \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} \right]
 $$
 
 **Equation (P25) — Negative-Exponent Operator Form for $\pi$:**
@@ -296,6 +324,10 @@ $$
 
 #### 2. Secondary Area (*Luas*) Derivation (Paragraphs 31–45, Pages 3–4)
 
+> [!NOTE]
+> **Ringkasan Derivasi Luas ($\Delta L \equiv \Delta_{(L_{(Square)} - L_{(Circle)})}$):**
+> Bagian kedua manuskrip menerapkan langkah aljabar yang sama untuk besaran **Luas (*Area*)** dalam satuan meter persegi ($m^2$), dimulai dari $\Delta L = (1 - \pi) \times m^2$ hingga menghasilkan $\Delta L = \left[ 1 - \left(4^{(-1)} \times 15 \times \sigma \times I_\zeta^{(-1)}\right) \right] \times m^2$.
+
 **Equation (P31) — Area Differential Relation:**
 
 $$
@@ -311,7 +343,7 @@ $$
 **Equation (P41) — Coupled Area-Integral Identity:**
 
 $$
-\frac{4^{(-1)} \times 15 \times \sigma}{\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} = \left[ \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right]
+\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)} = \left[ \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right]
 $$
 
 **Equation (P45) — Final Substituted Area Differential:**

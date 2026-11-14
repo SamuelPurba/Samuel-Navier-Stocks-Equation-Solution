@@ -4,6 +4,10 @@ When authoring or updating scientific documentation, mathematical monographs, or
 
 ## 1. Human-Centric Readability & Pedagogical Intuition ("100% Mudah Dibaca Manusia")
 - **Intuition Before Formalism:** Always precede dense mathematical derivations with a plain-language executive summary (*Inti Sari*), physical/engineering intuition, and clean ASCII/Mermaid visual schematics.
+- **Dual-Layer Notation (Shorthand + Verbatim Manuscript Form):** Always provide a Quick Notation Guide ($\Delta P \equiv \Delta_{(P_{(Square)} - P_{(Circle)})}$, $I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$) and an at-a-glance summary table before multi-step derivations, and pair each step with:
+  1. **Penjelasan Mudah** (1-sentence plain-language explanation),
+  2. **Bentuk Ringkas** (compact shorthand formula for instant visual comprehension), and
+  3. **Bentuk Lengkap Manuskrip** (full verbatim equation in display math `$$`).
 - **Readable Typography for Compound Fractions:** Avoid 3- or 4-story vertically stacked `\frac` expressions that shrink inner text to microscopic sizes; write compound ratios as side-by-side products (`\frac{A}{B} \times \left(\frac{C}{D}\right)`) while preserving 100% of the manuscript's algebraic steps and variants.
 - **Explicit Gap Tagging:** Never invent unstated physical definitions or empirical datasets; tag any undefined manuscript symbol or unit explicitly with `[Repository Gap — Author Clarification Required]`.
 
