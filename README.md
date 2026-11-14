@@ -41,7 +41,7 @@
   - [C. Engineering Intuition: Spectral Cutoff at zeta(s) = -1/12](#c-engineering-intuition-spectral-cutoff-at-zetas---112)
   - [D. Scope: What This Repository Solves vs. Open Questions](#d-scope-what-this-repository-solves-vs-open-questions)
 - [II. Mathematical Framework and Step-by-Step Derivation](#ii-mathematical-framework-and-step-by-step-derivation)
-  - [A. Cross-Check of Grouping and Coefficient Conventions](#a-cross-check-of-grouping-and-coefficient-conventions)
+  - [A. Mathematical Notes and Verification of Grouping and Coefficient Conventions](#a-mathematical-notes-and-verification-of-grouping-and-coefficient-conventions)
   - [B. Core 6-Step Algebraic Sequence](#b-core-6-step-algebraic-sequence)
   - [C. Complete Manuscript Derivations from Updated DOCX and PDF](#c-complete-manuscript-derivations-from-updated-docx-and-pdf)
 - [III. Interactive Command Protocols](#iii-interactive-command-protocols)
@@ -62,29 +62,29 @@
 
 This repository documents the analytical and symbolic formulation titled **"Samuel – Navier Stocks Equation Solution,"** authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). The work investigates the algebraic coupling between macroscopic geometric boundary differentials—specifically the rectilinear-to-curvilinear perimeter/pressure differential $\Delta_{(P_{(Square)} - P_{(Circle)})}$ and the area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$—and a fourth-order radial integral functional $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ bounded at the analytically continued Riemann zeta value $\zeta(s) = -\frac{1}{12}$. By isolating the transcendental constant $\pi$ from the geometric boundary relation and substituting it into the radial integral expression for $\sigma$ with prefactor $\frac{8 \times \pi}{30}$, the derivation performs rational coefficient reduction and operator inversion $(\int r^4 f(r)\,dr)^{-1}$ to eliminate $\pi$ in favor of $\sigma$ and the regularized radial integral. This README provides an IEEE-compliant, Scopus Q1-grade technical specification of the governing equations cross-checked against both the `.docx` and `.pdf` manuscript files, a complete Nomenclature table flagging unstated physical assumptions, interactive command protocols (`/Team-Viewer`, `/learn`, `/humanize`), a zero-dependency Python 3 numerical verification module (`solver.py`), and an honest critical assessment of analytical gaps requiring further boundary-value specification.
 
-**Index Terms—** *Navier–Stokes equation, geometric boundary differential, Riemann zeta regularization, fourth-order radial integral, algebraic operator inversion, Politeknik Negeri Batam.*
+**Index Terms—** *Algebraic operator inversion, fourth-order radial integral, geometric boundary differential, Navier–Stokes equation, Politeknik Negeri Batam, Riemann zeta regularization.*
 
 ---
 
 ## Nomenclature
 
-The table below catalogs every mathematical symbol appearing in [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf). In strict adherence to Scopus Q1 anti-hallucination standards, symbols whose explicit physical definitions or SI units are not written in prose within the source manuscript are marked with `[Repository Gap — Author Clarification Required]`.
+The table below catalogs every mathematical symbol appearing in [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf). In strict adherence to Scopus Q1 anti-hallucination standards, symbols whose explicit physical definitions or SI units are not written in prose within the source manuscript are marked with `[Author Clarification Required — Not Specified in Repository]` / `[Repository Gap — Author Clarification Required]`.
 
-| Symbol | Source Manuscript Notation | Verified Mathematical Role in Manuscript | SI Units / Physical Definition Status |
-| :---: | :--- | :--- | :--- |
-| $\Delta_{(P_{(Square)} - P_{(Circle)})}$ | `∆_(P_(Square) - P_(Circle))` | Differential between square and circular perimeter/pressure quantities $P_{(Square)}$ and $P_{(Circle)}$ | `[Repository Gap — Author Clarification Required]` *(Symbol $P$ denotes Perimeter / Pressure boundary quantity scaled by $a$)* |
-| $P_{(Square)}$ | `P_(Square)` | Rectilinear (square) boundary quantity with dimensionless coefficient $4$ | `[Repository Gap — Author Clarification Required]` |
-| $P_{(Circle)}$ | `P_(Circle)` | Curvilinear (circle) boundary quantity with dimensionless coefficient $\pi$ | `[Repository Gap — Author Clarification Required]` |
-| $a$ | `a` | Linear scaling parameter multiplying $(4 - \pi)$ in the $\Delta_{(P_{(Square)} - P_{(Circle)})}$ relation | `[Repository Gap — Author Clarification Required]` *(Reference solver adopts $\text{a}$ = 101325.0 $\text{Pa}$ for numerical testing)* |
-| $\Delta_{(L_{(Square)} - L_{(Circle)})}$ | `∆_(L_(Square) - L_(Circle))` | Secondary differential between square and circular area (*Luas*) quantities $L_{(Square)}$ and $L_{(Circle)}$ (Pages 3–4 of updated manuscript) | $\text{m}^2$ *(Explicitly scaled by $\text{m}^2$ in Paragraph 31 of `.docx`)* |
-| $L_{(Square)}, L_{(Circle)}$ | `L_(Square)`, `L_(Circle)` | Square and circular area (*Luas*) boundary quantities in the secondary derivation | $\text{m}^2$ `[Repository Gap — Author Clarification Required: coefficient 1 vs. 4 in (1 - pi) * m^2]` |
-| $m^2$ | `m^2` | Square-meter area scaling factor in the $\Delta_{(L_{(Square)} - L_{(Circle)})}$ formulation | $\text{m}^2$ (Square meters) |
-| $\sigma$ | `σ` | Macroscopic stress / dissipation parameter coupled to the fourth-order radial integral | `[Repository Gap — Author Clarification Required]` |
-| $r$ | `r` | Radial integration variable in the fourth-order moment $\int r^4 f(r)\,dr$ | `[Repository Gap — Author Clarification Required]` *(Dimensionless or radial length coordinate)* |
-| $f(r)$ | `f(r)` | Radial integrand kernel function multiplying $r^4$ | `[Repository Gap — Author Clarification Required: explicit functional form of f(r) is not specified in the .docx/.pdf; solver.py uses a canonical test kernel f(r) = exp(-r^2)]` |
-| $s$ | `s` | Complex/real argument of the Riemann zeta function $\zeta(s)$ | Dimensionless ($s = -1$ yields $\zeta(-1) = -\frac{1}{12}$) |
-| $\zeta(s)$ | `ζ(s) = (-1/12)` | Upper limit of definite radial integration fixed at the Riemann zeta regularization value $-\frac{1}{12}$ | Dimensionless analytic continuation constant ($-\frac{1}{12} \approx -0.08333333333333333$) |
-| $\pi$ | `π` | Circle-to-diameter geometric constant isolated and inverted via $\sigma$ and the radial integral | Dimensionless ($\approx 3.141592653589793$) |
+| Symbol | Source Manuscript Notation | Mathematical Domain | Verified Mathematical Role in Manuscript | SI Units / Physical Definition Status |
+| :---: | :--- | :---: | :--- | :--- |
+| $\Delta_{(P_{(Square)} - P_{(Circle)})}$ | `∆_(P_(Square) - P_(Circle))` | $\mathbb{R}$ | Differential between square and circular perimeter/pressure quantities $P_{(Square)}$ and $P_{(Circle)}$ | `[Author Clarification Required — Not Specified in Repository]` *(Symbol $P$ denotes Perimeter / Pressure boundary quantity scaled by $a$)* |
+| $P_{(Square)}$ | `P_(Square)` | $\mathbb{R}$ | Rectilinear (square) boundary quantity with dimensionless coefficient $4$ | `[Author Clarification Required — Not Specified in Repository]` |
+| $P_{(Circle)}$ | `P_(Circle)` | $\mathbb{R}$ | Curvilinear (circle) boundary quantity with dimensionless coefficient $\pi$ | `[Author Clarification Required — Not Specified in Repository]` |
+| $a$ | `a` | $\mathbb{R} \setminus \{0\}$ | Linear scaling parameter multiplying $(4 - \pi)$ in the $\Delta_{(P_{(Square)} - P_{(Circle)})}$ relation | `[Author Clarification Required — Not Specified in Repository]` *(Reference solver adopts $a = 101325.0\text{ Pa}$ for numerical testing)* |
+| $\Delta_{(L_{(Square)} - L_{(Circle)})}$ | `∆_(L_(Square) - L_(Circle))` | $\mathbb{R}$ | Secondary differential between square and circular area (*Luas*) quantities $L_{(Square)}$ and $L_{(Circle)}$ (Pages 3–4 of updated manuscript) | $\text{m}^2$ *(Explicitly scaled by $m^2$ in Paragraph 31 of `.docx`)* |
+| $L_{(Square)}, L_{(Circle)}$ | `L_(Square)`, `L_(Circle)` | $\mathbb{R}^+$ | Square and circular area (*Luas*) boundary quantities in the secondary derivation | $\text{m}^2$ `[Author Clarification Required — Not Specified in Repository: coefficient 1 vs. 4 in (1 - pi) * m^2]` |
+| $m^2$ | `m^2` | $\mathbb{R}^+$ | Square-meter area scaling factor in the $\Delta_{(L_{(Square)} - L_{(Circle)})}$ formulation | $\text{m}^2$ (Square meters) |
+| $\sigma$ | `σ` | $\mathbb{R}$ | Macroscopic stress / dissipation parameter coupled to the fourth-order radial integral | `[Author Clarification Required — Not Specified in Repository]` |
+| $r$ | `r` | $[0, -\frac{1}{12}] \subset \mathbb{R}$ | Radial integration variable in the fourth-order moment $\int r^4 f(r)\,dr$ | `[Author Clarification Required — Not Specified in Repository]` *(Dimensionless or radial length coordinate)* |
+| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Radial integrand kernel function multiplying $r^4$ | `[Author Clarification Required — Not Specified in Repository: explicit functional form of f(r) is not specified in the .docx/.pdf; solver.py uses a canonical test kernel f(r) = exp(-r^2)]` |
+| $s$ | `s` | $\mathbb{C}$ ($s = -1$) | Complex/real argument of the Riemann zeta function $\zeta(s)$ | Dimensionless ($s = -1$ yields $\zeta(-1) = -\frac{1}{12}$) |
+| $\zeta(s)$ | `ζ(s) = (-1/12)` | $\mathbb{Q} \subset \mathbb{R}$ | Upper limit of definite radial integration fixed at the Riemann zeta regularization value $-\frac{1}{12}$ | Dimensionless analytic continuation constant ($-\frac{1}{12} \approx -0.08333333333333333$) |
+| $\pi$ | `π` | $\mathbb{R}^+$ | Circle-to-diameter geometric constant isolated and inverted via $\sigma$ and the radial integral | Dimensionless ($\approx 3.141592653589793$) |
 
 ---
 
@@ -154,7 +154,7 @@ Analogous to an **anti-aliasing low-pass filter** in digital signal processing o
 
 ## II. Mathematical Framework and Step-by-Step Derivation
 
-### A. Cross-Check of Grouping and Coefficient Conventions
+### A. Mathematical Notes and Verification of Grouping and Coefficient Conventions
 A rigorous inspection of the repository reveals two documented variants between the initial 3-page manuscript and the updated 4-page `.docx`/`.pdf` manuscript (`mtime: 2026-11-14 10:07–10:08`):
 
 1. **Grouping of $a$ in Step 3 (Isolation of $\pi$):**
