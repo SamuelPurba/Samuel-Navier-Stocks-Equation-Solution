@@ -229,8 +229,6 @@ $$
 \pi = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}
 $$
 
-*(Normalized unit-$a$ manuscript variant: $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$.)*
-
 #### Step 4 — Substitution and Coefficient Reduction (2/30 to 1/15)
 - **Penjelasan Mudah:** Memasukkan rumus $\pi$ dari Step 3 ke dalam rumus $\sigma$ (dengan penyederhanaan koefisien kuadran tunggal $\frac{2}{30} = \frac{1}{15}$).
 - **Bentuk Ringkas (Ukuran Penuh):** $\sigma = \frac{1}{15} \times \left(4 - \frac{\Delta P}{a}\right) \times I_\zeta$
