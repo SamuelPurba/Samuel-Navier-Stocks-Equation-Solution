@@ -27,7 +27,7 @@
 </table>
 
 **Quick Navigation:**  
-[📄 Primary Manuscript (PDF)](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) | [📝 Source Document (DOCX)](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) | [🔤 Nomenclature](#nomenclature) | [💡 I. Introduction & Conceptual Intuition](#i-introduction) | [🧮 II. Mathematical Framework & Derivations](#ii-mathematical-framework--step-by-step-derivation) | [⚙️ III. Command Protocols](#iii-interactive-command-protocols-team-viewer-learn-humanize) | [💻 IV. Reproducibility & Python Solver](#iv-repository-structure--execution--reproducibility) | [🔍 V. Limitations & Open Questions](#v-limitations-open-questions--future-work) | [📚 VI. IEEE Citation](#vi-citation-ieee-format--references)
+[📄 Primary Manuscript (PDF)](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) | [📝 Source Document (DOCX)](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) | [🔤 Nomenclature](#nomenclature) | [💡 I. Introduction](#i-introduction) | [🧮 II. Mathematical Framework](#ii-mathematical-framework-and-step-by-step-derivation) | [⚙️ III. Command Protocols](#iii-interactive-command-protocols) | [💻 IV. Reproducibility & Solver](#iv-repository-structure-and-reproducibility) | [🔍 V. Limitations & Open Questions](#v-limitations-open-questions-and-future-work) | [📚 VI. IEEE Citation](#vi-citation-and-references)
 
 ---
 
@@ -38,22 +38,22 @@
 - [I. Introduction](#i-introduction)
   - [A. Motivation and Engineering Context](#a-motivation-and-engineering-context)
   - [B. Visual Geometric Schematic of Boundary Discrepancy](#b-visual-geometric-schematic-of-boundary-discrepancy)
-  - [C. Engineering Intuition: Spectral Cutoff at $\zeta(s) = -1/12$](#c-engineering-intuition-spectral-cutoff-at-zetas---112)
+  - [C. Engineering Intuition: Spectral Cutoff at zeta(s) = -1/12](#c-engineering-intuition-spectral-cutoff-at-zetas---112)
   - [D. Scope: What This Repository Solves vs. Open Questions](#d-scope-what-this-repository-solves-vs-open-questions)
-- [II. Mathematical Framework & Step-by-Step Derivation](#ii-mathematical-framework--step-by-step-derivation)
-  - [A. Cross-Check of Grouping and Coefficient Conventions (.docx vs. .pdf)](#a-cross-check-of-grouping-and-coefficient-conventions-docx-vs-pdf)
-  - [B. Core 6-Step Algebraic Sequence (Canonical Anchor Derivation)](#b-core-6-step-algebraic-sequence-canonical-anchor-derivation)
-  - [C. Verbatim Manuscript Equations from Updated .docx & .pdf (Pages 1–4)](#c-verbatim-manuscript-equations-from-updated-docx--pdf-pages-14)
-- [III. Interactive Command Protocols (`/Team-Viewer`, `/learn`, `/humanize`)](#iii-interactive-command-protocols-team-viewer-learn-humanize)
+- [II. Mathematical Framework and Step-by-Step Derivation](#ii-mathematical-framework-and-step-by-step-derivation)
+  - [A. Cross-Check of Grouping and Coefficient Conventions](#a-cross-check-of-grouping-and-coefficient-conventions)
+  - [B. Core 6-Step Algebraic Sequence](#b-core-6-step-algebraic-sequence)
+  - [C. Complete Manuscript Derivations from Updated DOCX and PDF](#c-complete-manuscript-derivations-from-updated-docx-and-pdf)
+- [III. Interactive Command Protocols](#iii-interactive-command-protocols)
   - [A. Command Protocol Specification Table](#a-command-protocol-specification-table)
-  - [B. Command Syntax, Workflow & Example Prompts](#b-command-syntax-workflow--example-prompts)
-- [IV. Repository Structure & Execution / Reproducibility](#iv-repository-structure--execution--reproducibility)
+  - [B. Command Syntax and Example Prompts](#b-command-syntax-and-example-prompts)
+- [IV. Repository Structure and Reproducibility](#iv-repository-structure-and-reproducibility)
   - [A. Verified Workspace Directory Tree](#a-verified-workspace-directory-tree)
-  - [B. Software & Environment Requirements](#b-software--environment-requirements)
-  - [C. Reference Python Verification Module (`solver.py`)](#c-reference-python-verification-module-solverpy)
-  - [D. Verified Console Output & 10-Test Suite (`test_solver.py`)](#d-verified-console-output--10-test-suite-test_solverpy)
-- [V. Limitations, Open Questions & Future Work](#v-limitations-open-questions--future-work)
-- [VI. Citation (IEEE Format) & References](#vi-citation-ieee-format--references)
+  - [B. Software and Environment Requirements](#b-software-and-environment-requirements)
+  - [C. Reference Python Verification Module](#c-reference-python-verification-module)
+  - [D. Verified Console Output and Automated Unit Tests](#d-verified-console-output-and-automated-unit-tests)
+- [V. Limitations, Open Questions and Future Work](#v-limitations-open-questions-and-future-work)
+- [VI. Citation and References](#vi-citation-and-references)
 - [Repository Audit Log](#repository-audit-log)
 
 ---
@@ -93,7 +93,7 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 ### A. Motivation and Engineering Context
 The files contained in this repository present an original symbolic derivation by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). From an applied engineering and computational mechanics perspective, modeling rotating viscous flows inside discretized rectilinear domains introduces a fundamental geometric mismatch:
 - **Rectilinear Computational Grids:** Digital control volumes and Cartesian meshes use square cells with $90^\circ$ corners ($C^0$ boundary continuity), characterized by the normalized perimeter/area metric factor $4$.
-- **Curvilinear Physical Vortices:** Natural vortices and rotating streamlines follow smooth circular trajectories ($C^\infty$ curvature), characterized by the transcendental constant $\pi \approx 3.14159265...$.
+- **Curvilinear Physical Vortices:** Natural vortices and rotating streamlines follow smooth circular trajectories ($C^\infty$ curvature), characterized by the transcendental constant $\pi \approx 3.14159265$.
 
 When a circular vortex core is bounded by a rectilinear square cell, fluid stagnates in the corner regions, producing a macroscopic geometric boundary discrepancy proportional to $(4 - \pi) \approx 0.85840735$:
 
@@ -125,7 +125,7 @@ $$
        +-----------------------------------------------------------+
 ```
 
-### C. Engineering Intuition: Spectral Cutoff at $\zeta(s) = -1/12$
+### C. Engineering Intuition: Spectral Cutoff at zeta(s) = -1/12
 In classical turbulence theory, kinetic energy cascades from large vortices to increasingly small micro-eddies ($r \to 0$, or wavenumber $k \to \infty$). Unbounded integration across all radial modes leads to ultraviolet divergence. In this formulation, the fourth-order radial integral is anchored at the analytically continued Riemann zeta value at $s = -1$:
 
 $$
@@ -138,16 +138,16 @@ Analogous to an **anti-aliasing low-pass filter** in digital signal processing o
 - **What Is Explicitly Solved in the Repository:**
   - Exact algebraic isolation of $\pi$ from the geometric differential equation.
   - Exact symbolic elimination of $\pi$ by coupling the geometric differential to the fourth-order radial integral $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$.
-  - Closed-form representation of $\Delta_{(P_{(Square)} - P_{(Circle)})}$ and the secondary area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ using negative-exponent inverse integral operators $(\int r^4 f(r)\,dr)^{(-1)}$.
-  - Machine-precision numerical verification ([`solver.py`](./solver.py) and [`test_solver.py`](./test_solver.py)) confirming zero algebraic residual ($0.0000000000000000\text{e}+00$).
+  - Closed-form representation of $\Delta_{(P_{(Square)} - P_{(Circle)})}$ and the secondary area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ using negative-exponent inverse integral operators $(\int r^4 f(r)\,dr)^{-1}$.
+  - Machine-precision numerical verification ([`solver.py`](./solver.py) and [`test_solver.py`](./test_solver.py)) confirming zero algebraic residual (`0.0000000000000000e+00`).
 - **Open Questions (`[Repository Gap — Author Clarification Required]`):**
   - The source `.docx` and `.pdf` files contain pure symbolic equations without accompanying prose derivations of the three-dimensional Navier–Stokes partial differential equations, boundary conditions on $\Omega \subset \mathbb{R}^3$, or an explicit closed-form specification of the radial kernel $f(r)$.
 
 ---
 
-## II. Mathematical Framework & Step-by-Step Derivation
+## II. Mathematical Framework and Step-by-Step Derivation
 
-### A. Cross-Check of Grouping and Coefficient Conventions (`.docx` vs. `.pdf`)
+### A. Cross-Check of Grouping and Coefficient Conventions
 A rigorous inspection of the repository reveals two documented variants between the initial 3-page manuscript and the updated 4-page `.docx`/`.pdf` manuscript (`mtime: 2026-11-14 10:07–10:08`):
 
 1. **Grouping of $a$ in Step 3 (Isolation of $\pi$):**
@@ -157,7 +157,7 @@ $$
 \pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}
 $$
 
-   - *Verification Note:* The initial 3-page PDF rendering omitted the inner $a$ multiplier in the numerator, displaying $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$ (which coincides with the exact expansion when $a = 1$ is normalized, or when $\Delta$ is pre-normalized by $a$). In the updated `.docx` (Paragraph 11) and updated `.pdf` (Page 1, Equation 3), the author explicitly wrote $\pi = \left\lbrace \frac{((4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})})}{a} \right\rbrace$, confirming that $\pi = 4 - \frac{\Delta}{a}$ is the intended dimensional grouping.
+   - *Verification Note:* The initial 3-page PDF rendering omitted the inner $a$ multiplier in the numerator, displaying $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$ (which coincides with the exact expansion when $a = 1$ is normalized). In the updated `.docx` (Paragraph 11) and updated `.pdf` (Page 1, Equation 3), the author explicitly wrote $\pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$, confirming that $\pi = 4 - \frac{\Delta}{a}$ is the intended dimensional grouping.
 
 2. **Prefactor Reduction ($\frac{8}{30} \to \frac{4}{15}$ vs. Quadrant-Reduced $\frac{2}{30} \to \frac{1}{15}$):**
    - **Canonical 6-Step Sequence (Single-Quadrant Reduction $8 \mapsto 2$):** Reduces $\frac{2}{30} = \frac{1}{15}$, yielding $\pi = (15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$.
@@ -167,7 +167,7 @@ Both sequences are documented in full below.
 
 ---
 
-### B. Core 6-Step Algebraic Sequence (Canonical Anchor Derivation)
+### B. Core 6-Step Algebraic Sequence
 
 ```mermaid
 flowchart TD
@@ -186,14 +186,14 @@ $$
 \Delta_{(P_{(Square)} - P_{(Circle)})} = (4 - \pi) \times a
 $$
 
-#### Step 2 — Integral Coupling with $\sigma$ and $\zeta(s) = -\frac{1}{12}$
+#### Step 2 — Integral Coupling with sigma and zeta(s) = -1/12
 The parameter $\sigma$ is coupled to the fourth-order radial integral of $f(r)$ evaluated from $0$ to the Riemann zeta regularization point $\zeta(s) = -\frac{1}{12}$:
 
 $$
 \sigma = \left(\frac{8 \times \pi}{30}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr
 $$
 
-#### Step 3 — Algebraic Isolation of $\pi$
+#### Step 3 — Algebraic Isolation of pi
 Isolating $\pi$ from Step 1 (shown in both exact expanded form and normalized unit-$a$ grouping):
 
 $$
@@ -202,14 +202,14 @@ $$
 
 *(Normalized unit-$a$ manuscript variant: $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$.)*
 
-#### Step 4 — Substitution & Coefficient Reduction ($\frac{2}{30} \to \frac{1}{15}$)
+#### Step 4 — Substitution and Coefficient Reduction (2/30 to 1/15)
 Substituting the isolated expression for $\pi$ into the quadrant-normalized integral relation ($\frac{2}{30} = \frac{1}{15}$):
 
 $$
 \sigma = \left(\frac{4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}}{15}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr
 $$
 
-#### Step 5 — Closed-Form Expression for $\pi$ in Terms of $\sigma$ and the Integral
+#### Step 5 — Closed-Form Expression for pi in Terms of sigma and the Integral
 Multiplying by $15$ and inverting the radial integral operator yields the closed-form coupling for $\pi$:
 
 $$
@@ -225,99 +225,99 @@ $$
 
 ---
 
-### C. Verbatim Manuscript Equations from Updated `.docx` & `.pdf` (Pages 1–4)
+### C. Complete Manuscript Derivations from Updated DOCX and PDF
 
-For complete archival traceability, the exact equations from [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (Paragraphs 7–45) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (Pages 1–4) are reproduced below:
+For complete archival traceability, the exact equations from [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (Paragraphs 7–45) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (Pages 1–4) are reproduced below in clean, full-size display format:
 
 #### 1. Primary Perimeter/Pressure Derivation (Paragraphs 7–29, Pages 1–3)
 
-**Equation (P07):**
+**Equation (P07) — Geometric Differential:**
 
 $$
-\Delta_{(P_{(Square)} - P_{(Circle)})} = \left\lbrace (4 - \pi) \times a \right\rbrace
+\Delta_{(P_{(Square)} - P_{(Circle)})} = \left[ (4 - \pi) \times a \right]
 $$
 
-**Equation (P09):**
+**Equation (P09) — Radial Integral Coupling:**
 
 $$
-\sigma = \left\lbrace \left(\frac{8 \times \pi}{30}\right) \times \int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right) \right\rbrace
+\sigma = \left[ \left(\frac{8 \times \pi}{30}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr \right]
 $$
 
-**Equation (P11):**
+**Equation (P11) — Isolation of $\pi$:**
 
 $$
-\pi = \left\lbrace \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right\rbrace
+\pi = \left[ \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right]
 $$
 
-**Equation (P13):**
+**Equation (P13) — Substitution of $\pi$ into $\sigma$ (with factor $8/30$):**
 
 $$
-\sigma = \left\lbrace \left(\frac{8 \times \left\lbrace \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right\rbrace}{30}\right) \times \int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right) \right\rbrace
+\sigma = \left[ \frac{8}{30} \times \left(\frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr \right]
 $$
 
-**Equation (P15):**
+**Equation (P15) — Rational Reduction ($8/30 = 4/15$):**
 
 $$
-\sigma = \left\lbrace \left(\frac{4 \times \left(\frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}\right)}{15}\right) \times \int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right) \right\rbrace
+\sigma = \left[ \frac{4}{15} \times \left(\frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}\right) \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr \right]
 $$
 
-**Equation (P17):**
+**Equation (P17) — Isolation of the Geometric Quotient:**
 
 $$
-\frac{\left(4^{(-1)} \times 15 \times \sigma\right)}{\left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)} = \left\lbrace \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right\rbrace
+\frac{4^{(-1)} \times 15 \times \sigma}{\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} = \left[ \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} \right]
 $$
 
-**Equation (P23):**
+**Equation (P23) — Explicit Fractional Form for $\pi$:**
 
 $$
-\pi = \left\lbrace \frac{(15 \times \sigma)}{4 \times \left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)} \right\rbrace
+\pi = \left[ \frac{15 \times \sigma}{4 \times \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} \right]
 $$
 
-**Equation (P25):**
+**Equation (P25) — Negative-Exponent Operator Form for $\pi$:**
 
 $$
-\pi = \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)^{(-1)}\right)
+\pi = \left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)}
 $$
 
-**Equation (P29):**
+**Equation (P29) — Final Substituted Boundary Differential:**
 
 $$
-\Delta_{(P_{(Square)} - P_{(Circle)})} = \left\lbrace \left((4 \times a) - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)^{(-1)}\right)\right) \times a \right\rbrace
+\Delta_{(P_{(Square)} - P_{(Circle)})} = \left[ \left((4 \times a) - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)}\right)\right) \times a \right]
 $$
 
 *(Note: In Paragraph 29 of the `.docx`, $(4 \times a)$ appears inside the outer multiplication by $a$; for dimensional consistency with Equation P07, either the inner term is $4$ or the outer multiplication by $a$ distributes as $(4 \times a) - \pi \times a$. This is flagged in the Repository Audit Log.)*
 
 #### 2. Secondary Area (*Luas*) Derivation (Paragraphs 31–45, Pages 3–4)
 
-**Equation (P31):**
+**Equation (P31) — Area Differential Relation:**
 
 $$
-\Delta_{(L_{(Square)} - L_{(Circle)})} = \left\lbrace (1 - \pi) \times m^2 \right\rbrace
+\Delta_{(L_{(Square)} - L_{(Circle)})} = \left[ (1 - \pi) \times m^2 \right]
 $$
 
-**Equation (P35):**
+**Equation (P35) — Isolation of $\pi$ from Area Differential:**
 
 $$
-\pi = \left\lbrace \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right\rbrace
+\pi = \left[ \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right]
 $$
 
-**Equation (P41):**
+**Equation (P41) — Coupled Area-Integral Identity:**
 
 $$
-\frac{\left(4^{(-1)} \times 15 \times \sigma\right)}{\left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)} = \left\lbrace \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right\rbrace
+\frac{4^{(-1)} \times 15 \times \sigma}{\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr} = \left[ \frac{m^2 - \Delta_{(L_{(Square)} - L_{(Circle)})}}{m^2} \right]
 $$
 
-**Equation (P45):**
+**Equation (P45) — Final Substituted Area Differential:**
 
 $$
-\Delta_{(L_{(Square)} - L_{(Circle)})} = \left\lbrace \left(1 - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\left(\zeta(s) = \left(-\frac{1}{12}\right)\right)} \left(r^4 f(r)\,dr\right)\right)^{(-1)}\right)\right) \times m^2 \right\rbrace
+\Delta_{(L_{(Square)} - L_{(Circle)})} = \left[ \left(1 - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)}\right)\right) \times m^2 \right]
 $$
 
 ---
 
-## III. Interactive Command Protocols (`/Team-Viewer`, `/learn`, `/humanize`)
+## III. Interactive Command Protocols
 
-This section defines the three interactive command protocols for collaborative inspection, structured learning, and pedagogical translation of the repository.
+This section defines the three interactive command protocols (`/Team-Viewer`, `/learn`, and `/humanize`) for collaborative inspection, structured learning, and pedagogical translation of the repository.
 
 ```mermaid
 flowchart LR
@@ -344,13 +344,13 @@ flowchart LR
 
 | Command Directive | Primary Objective | Required Inputs / Arguments | Expected Output Behavior |
 | :--- | :--- | :--- | :--- |
-| **`/Team-Viewer`** | Collaborative review, synchronized walkthroughs, and live inspection of derivations, parameters, and workspace files across peer reviewers. | `--target` (`docx`, `pdf`, `solver`, `all`)<br>`--step` (`1..6` or `P07..P45`)<br>`--verify` (`true`/`false`) | Displays a synchronized side-by-side audit table matching `.docx` paragraphs against `.pdf` equations and live `solver.py` telemetry outputs. |
-| **`/learn`** | Interactive, step-by-step pedagogical mode that walks readers through each algebraic transformation (Steps 1–6), explains every symbol from the Nomenclature table, and checks prerequisite concepts before advancing. | `--step` (`1..6`)<br>`--check-prereqs` (`true`/`false`)<br>`--lang` (`en` or `id`) | Presents one derivation step at a time, defines each symbol from the Nomenclature table, verifies algebraic manipulation, and prompts a comprehension check before advancing. |
-| **`/humanize`** | Clarity-translation mode that converts dense symbolic steps and formal IEEE prose into intuitive physical and engineering explanations without altering mathematical exactness. | `--equation` (`1..6` or `all`)<br>`--analogy` (`fluid`, `robotics`, `signal-processing`) | Retains the exact LaTeX equation while appending a plain-language engineering explanation (e.g., square grid corners vs. circular vortices, and $\zeta(-1) = -1/12$ as a high-frequency spectral filter). |
+| **`/Team-Viewer`** | Collaborative review, synchronized walkthroughs, and live inspection of derivations, parameters, and workspace files across peer reviewers. | `--target` (`docx`, `pdf`, `solver`, `all`), `--step` (`1..6` or `P07..P45`), `--verify` (`true`/`false`) | Displays a synchronized side-by-side audit table matching `.docx` paragraphs against `.pdf` equations and live `solver.py` telemetry outputs. |
+| **`/learn`** | Interactive, step-by-step pedagogical mode that walks readers through each algebraic transformation (Steps 1–6), explains every symbol from the Nomenclature table, and checks prerequisite concepts before advancing. | `--step` (`1..6`), `--check-prereqs` (`true`/`false`), `--lang` (`en` or `id`) | Presents one derivation step at a time, defines each symbol from the Nomenclature table, verifies algebraic manipulation, and prompts a comprehension check before advancing. |
+| **`/humanize`** | Clarity-translation mode that converts dense symbolic steps and formal IEEE prose into intuitive physical and engineering explanations without altering mathematical exactness. | `--equation` (`1..6` or `all`), `--analogy` (`fluid`, `robotics`, `signal-processing`) | Retains the exact LaTeX equation while appending a plain-language engineering explanation (e.g., square grid corners vs. circular vortices, and $\zeta(-1) = -1/12$ as a high-frequency spectral filter). |
 
-### B. Command Syntax, Workflow & Example Prompts
+### B. Command Syntax and Example Prompts
 
-#### 1. `/Team-Viewer` — Collaborative Review & Live Workspace Inspection
+#### 1. `/Team-Viewer` — Collaborative Review and Live Workspace Inspection
 ```bash
 /Team-Viewer --target=all --step=1..6 --verify=true
 ```
@@ -362,7 +362,7 @@ flowchart LR
 ```
 - **Example Prompt:** `"/learn Walk me through Steps 1 to 6 of the Samuel-Navier-Stokes derivation one step at a time, checking my understanding of the inverse integral operator before moving to Step 6."`
 
-#### 3. `/humanize` — Engineering & Physical Intuition Translation
+#### 3. `/humanize` — Engineering and Physical Intuition Translation
 ```bash
 /humanize --equation=6 --analogy=robotics
 ```
@@ -370,7 +370,7 @@ flowchart LR
 
 ---
 
-## IV. Repository Structure & Execution / Reproducibility
+## IV. Repository Structure and Reproducibility
 
 ### A. Verified Workspace Directory Tree
 The directory structure below reflects the exact files present in the local/Google Drive repository root:
@@ -385,12 +385,12 @@ Samuel-Navier Stocks Equation Solution/
 └── test_solver.py                                  # Automated 10-test unittest verification suite
 ```
 
-### B. Software & Environment Requirements
+### B. Software and Environment Requirements
 - **Operating System:** Windows, Linux, or macOS.
 - **Python Runtime:** Python `3.8+` (tested and verified on Python `3.9.13`).
 - **External Dependencies:** **None** (`0` third-party packages required; uses only Python Standard Library modules `math`, `argparse`, `json`, `sys`, and `unittest`).
 
-### C. Reference Python Verification Module (`solver.py`)
+### C. Reference Python Verification Module
 
 ```mermaid
 flowchart LR
@@ -605,7 +605,7 @@ if __name__ == "__main__":
             print("AUDIT STATUS: VERIFIED ZERO RESIDUAL (PASS)")
 ```
 
-### D. Verified Console Output & 10-Test Suite (`test_solver.py`)
+### D. Verified Console Output and Automated Unit Tests
 
 ```bash
 # 1. Execute numerical verification with self-audit flag
@@ -638,7 +638,7 @@ AUDIT STATUS: VERIFIED ZERO RESIDUAL (PASS)
 
 ---
 
-## V. Limitations, Open Questions & Future Work
+## V. Limitations, Open Questions and Future Work
 
 In accordance with **Scopus Q1** peer-review standards, the following analytical limitations and open questions are explicitly recorded:
 
@@ -646,13 +646,13 @@ In accordance with **Scopus Q1** peer-review standards, the following analytical
    - While the manuscript establishes an algebraic identity between $\Delta_{(P_{(Square)} - P_{(Circle)})}$ and the radial integral $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$, the explicit continuum mechanics reduction from the 3D incompressible Navier–Stokes momentum PDE $\rho(\partial_t \mathbf{u} + \mathbf{u}\cdot\nabla\mathbf{u}) = -\nabla p + \mu \nabla^2\mathbf{u}$ to Equation (1) is not included in the `.docx`/`.pdf` files.
 2. **Unstated Functional Form of $f(r)$ (`[Repository Gap — Author Clarification Required]`):**
    - The kernel $f(r)$ inside $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ is left symbolic in the manuscript. For numerical verification in `solver.py`, a smooth Gaussian test kernel $f(r) = e^{-r^2}$ is used to demonstrate non-vanishing invertibility on $[0, -\frac{1}{12}]$.
-3. **Dimensional Homogeneity & Grouping Variants:**
+3. **Dimensional Homogeneity and Grouping Variants:**
    - Equation (P29) in the updated `.docx` writes $((4 \times a) - \pi) \times a$, whereas Equation (P07) writes $(4 - \pi) \times a$. Clarifying whether $a$ is normalized to unity ($a = 1$) or factored outside $(4 - \pi)$ is recommended for future manuscript revisions.
    - Similarly, in the secondary area derivation (Equation P31), $\Delta_{(L_{(Square)} - L_{(Circle)})} = (1 - \pi) \times m^2$ uses coefficient $1$ for the square term (representing a unit square of side $1\text{ m}$ vs. a disk of radius $1\text{ m}$), which is negative since $1 - \pi < 0$.
 
 ---
 
-## VI. Citation (IEEE Format) & References
+## VI. Citation and References
 
 ### A. Formal IEEE Citation Entry
 > **[1]** S. H. O. Purba, "Samuel – Navier Stocks Equation Solution," Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam, Batam, Indonesia, Technical Manuscript, Nov. 2026.
@@ -680,11 +680,11 @@ In accordance with **Scopus Q1** peer-review standards, the following analytical
 
 ## Repository Audit Log
 
-1. **Inspected & Accessible Repository Files:**
+1. **Inspected and Accessible Repository Files:**
    - [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (`16,574 bytes`, modified `2026-11-14 10:07:47`): Accessible and parsed via Office Math (`word/document.xml`, Paragraphs `P01`–`P45`).
    - [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (`239,922 bytes`, modified `2026-11-14 10:08:16`, Pages 1–4 containing equations and Page 5 blank): Accessible and visually verified.
    - [`README.md`](./README.md), [`solver.py`](./solver.py), [`test_solver.py`](./test_solver.py), and [`avatar_profile.png`](./avatar_profile.png): Accessible and verified (`10/10` unit tests passing).
-2. **Missing Definitions / Discrepancies Flagged (`[Repository Gap — Author Clarification Required]`):**
-   - **Prose Definitions & SI Units:** The `.docx` and `.pdf` files contain only the header block (Paragraphs 1–5) and symbolic equations (Paragraphs 7–45) with zero explanatory prose defining the physical units of $P_{(Square)}$, $P_{(Circle)}$, $a$, $\sigma$, $r$, or the explicit analytical expression for the kernel $f(r)$.
-   - **Step 3 Grouping Variant:** The initial 3-page manuscript wrote $\pi = \frac{4 - \Delta}{a}$, whereas the updated 2026-11-14 `.docx`/`.pdf` (Paragraph 11) writes $\pi = \frac{(4 \times a) - \Delta}{a} = 4 - \frac{\Delta}{a}$, and Paragraph 29 writes $\Delta = \{((4 \times a) - \pi) \times a\}$. Both forms are explicitly documented in Section II.
+2. **Missing Definitions and Discrepancies Flagged (`[Repository Gap — Author Clarification Required]`):**
+   - **Prose Definitions and SI Units:** The `.docx` and `.pdf` files contain only the header block (Paragraphs 1–5) and symbolic equations (Paragraphs 7–45) with zero explanatory prose defining the physical units of $P_{(Square)}$, $P_{(Circle)}$, $a$, $\sigma$, $r$, or the explicit analytical expression for the kernel $f(r)$.
+   - **Step 3 Grouping Variant:** The initial 3-page manuscript wrote $\pi = \frac{4 - \Delta}{a}$, whereas the updated 2026-11-14 `.docx`/`.pdf` (Paragraph 11) writes $\pi = \frac{(4 \times a) - \Delta}{a} = 4 - \frac{\Delta}{a}$, and Paragraph 29 writes $\Delta = [((4 \times a) - \pi) \times a]$. Both forms are explicitly documented in Section II.
    - **Prefactor Variant:** The canonical 6-step sequence reduces $\frac{8\pi}{30} \to \frac{2\pi}{30} = \frac{\pi}{15}$ (yielding $15\sigma$), whereas the updated `.docx`/`.pdf` (Paragraphs 13–25) reduces $\frac{8}{30} = \frac{4}{15}$ (carrying $4^{(-1)} \times 15 \times \sigma = \frac{15}{4}\sigma$). Both derivations are preserved side by side in Section II.B and Section II.C.
