@@ -91,6 +91,13 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 ## I. Introduction
 
 ### A. Motivation and Engineering Context
+
+> [!TIP]
+> **Inti Sari (*Executive Takeaway — 60-Second Overview*):**
+> 1. **Geometric Boundary Discrepancy ($\Delta P$ and $\Delta L$):** Modeling a smooth circular fluid vortex (metric factor $\pi \approx 3.14159265$) inside a square computational grid cell (metric factor $4$) creates corner stagnation zones whose macroscopic boundary discrepancy is $\Delta_{(P_{(Square)} - P_{(Circle)})} = (4 - \pi) \times a$.
+> 2. **Spectral Cutoff Regularization ($\zeta(s) = -1/12$):** To prevent high-wavenumber ultraviolet divergence in the fourth-order radial dissipation moment, the upper limit of radial integration is anchored at the Riemann zeta analytic continuation constant $\zeta(-1) = -\frac{1}{12}$.
+> 3. **Exact Algebraic Closure:** By isolating $\pi$ from the geometric relation and coupling it to the regularized radial moment $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$, the transcendental constant $\pi$ is eliminated via the inverse integral operator $(\int r^4 f(r)\,dr)^{-1}$ with zero numerical residual (`0.0000000000000000e+00`).
+
 The files contained in this repository present an original symbolic derivation by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). From an applied engineering and computational mechanics perspective, modeling rotating viscous flows inside discretized rectilinear domains introduces a fundamental geometric mismatch:
 - **Rectilinear Computational Grids:** Digital control volumes and Cartesian meshes use square cells with $90^\circ$ corners ($C^0$ boundary continuity), characterized by the normalized perimeter/area metric factor $4$.
 - **Curvilinear Physical Vortices:** Natural vortices and rotating streamlines follow smooth circular trajectories ($C^\infty$ curvature), characterized by the transcendental constant $\pi \approx 3.14159265$.
@@ -377,6 +384,7 @@ The directory structure below reflects the exact files present in the local/Goog
 
 ```text
 Samuel-Navier Stocks Equation Solution/
+├── AGENTS.md                                       # IEEE / Scopus Q1 documentation & verification rules
 ├── README.md                                       # IEEE / Scopus Q1 documentation (this file)
 ├── Samuel-Navier Stocks Equation Solution.docx     # Primary Word manuscript (45 paragraphs, OMML math)
 ├── Samuel-Navier Stocks Equation Solution.pdf      # Rendered PDF manuscript (Pages 1–4)
