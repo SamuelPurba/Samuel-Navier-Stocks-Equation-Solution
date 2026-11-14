@@ -320,8 +320,6 @@ $$
 \Delta_{(P_{(Square)} - P_{(Circle)})} = \left[ \left((4 \times a) - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{(-1)}\right)\right) \times a \right]
 $$
 
-*(Note: In Paragraph 29 of the `.docx`, $(4 \times a)$ appears inside the outer multiplication by $a$; for dimensional consistency with Equation P07, either the inner term is $4$ or the outer multiplication by $a$ distributes as $(4 \times a) - \pi \times a$. This is flagged in the Repository Audit Log.)*
-
 #### 2. Secondary Area (*Luas*) Derivation (Paragraphs 31–45, Pages 3–4)
 
 > [!NOTE]
