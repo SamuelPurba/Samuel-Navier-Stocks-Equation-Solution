@@ -164,7 +164,7 @@ $$
 \pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}
 $$
 
-   - *Verification Note:* The initial 3-page PDF rendering omitted the inner $a$ multiplier in the numerator, displaying $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$ (which coincides with the exact expansion when $a = 1$ is normalized). In the updated `.docx` (Paragraph 11) and updated `.pdf` (Page 1, Equation 3), the author explicitly wrote $\pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$, confirming that $\pi = 4 - \frac{\Delta}{a}$ is the intended dimensional grouping.
+   - *Verification Note:* The initial 3-page PDF rendering omitted the inner $a$ multiplier in the numerator, displaying $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$ (which coincides with the exact expansion when $a = 1$ is normalized). In the updated `.docx` (Paragraph 11) and updated `.pdf` (Page 1, Equation 3), the author explicitly wrote $\pi = \frac{4 - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$, confirming that $\pi = 4 - \frac{\Delta}{a}$ is the intended dimensional grouping.
 
 2. **Prefactor Reduction ($\frac{8}{30} \to \frac{4}{15}$ vs. Quadrant-Reduced $\frac{2}{30} \to \frac{1}{15}$):**
    - **Canonical 6-Step Sequence (Single-Quadrant Reduction $8 \mapsto 2$):** Reduces $\frac{2}{30} = \frac{1}{15}$, yielding $\pi = (15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$.
