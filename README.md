@@ -22,9 +22,6 @@
         Study Program in Robotics and Artificial Intelligence Engineering (<em>Prodi Teknik Robotika dan Kecerdasan buatan</em>)<br>
         <strong>Politeknik Negeri Batam</strong>, Batam, Kepulauan Riau, Indonesia
       </p>
-      <p>
-        <em>Repository Alias Reconciliation:</em> The repository directory/remote alias <code>Samuel–Avier Stocks Equation Solution</code> is canonically reconciled with the author's primary manuscript title <strong>&quot;Samuel – Navier Stocks Equation Solution&quot;</strong>.
-      </p>
     </td>
   </tr>
 </table>
