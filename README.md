@@ -6,8 +6,6 @@
 [![Document Standard](https://img.shields.io/badge/Standard-IEEE_Transactions_%2F_Scopus_Q1-00629B?style=for-the-badge&logo=ieee&logoColor=white)](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf)
 [![Primary Source](https://img.shields.io/badge/Manuscript-PDF_%26_DOCX_Verified-2EA44F?style=for-the-badge)](./Samuel-Navier%20Stocks%20Equation%20Solution.docx)
 [![Verification Solver](https://img.shields.io/badge/Python_3_Audit-Zero_Residual_PASS-brightgreen?style=for-the-badge)](./solver.py)
-[![Unit Tests](https://img.shields.io/badge/Test_Suite-10%2F10_Passing-blue?style=for-the-badge)](./test_solver.py)
-[![Repository Reconciled](https://img.shields.io/badge/Repository_Alias-Samuel--Avier_Stocks_Reconciled-blueviolet?style=for-the-badge)](./AGENTS.md)
 
 ---
 
@@ -82,23 +80,23 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 
 | Symbol | Source Manuscript Notation | Mathematical Domain | Verified Role in Manuscript | Physical Units / Gap Status |
 | :---: | :--- | :---: | :--- | :--- |
-| $\Delta_{(P_{(Square)} - P_{(Circle)})}$ | `∆_(P_(Square) - P_(Circle))` | $\mathbb{R}$ | Boundary perimeter / pressure differential between square domain and inscribed circle (Branch A) | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` *(Dimensionless or Pascals $\text{Pa}$)* |
-| $P_{(Square)}$ | `P_(Square)` | $\mathbb{R}^+$ | Rectilinear boundary perimeter metric of square cell ($4a$) | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` |
-| $P_{(Circle)}$ | `P_(Circle)` | $\mathbb{R}^+$ | Curvilinear boundary circumference metric of inscribed circle ($\pi a$) | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` |
-| $a$ | `a` | $\mathbb{R}^* \equiv \mathbb{R} \setminus (0)$ | Linear scaling parameter multiplying $(4 - \pi)$ in Branch A | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` *(Reference solver adopts $a = 101325.0\text{ Pa}$)* |
-| $\Delta_{(L_{(Square)} - L_{(Circle)})}$ | `∆_(L_(Square) - L_{(Circle)})` | $\mathbb{R}^+$ | Area boundary differential between square domain and inscribed circular vortex (Branch B) | $\text{m}^2$ (Square meters) |
-| $L_{(Square)}$ | `L_(Square)` | $\mathbb{R}^+$ | Area of square computational domain ($m^2$) | $\text{m}^2$ (Square meters) |
-| $L_{(Circle)}$ | `L_(Circle)` | $\mathbb{R}^+$ | Area of inscribed circular domain ($\frac{\pi}{4} m^2 = (\pi \times 4^{-1}) m^2$) | $\text{m}^2$ (Square meters) |
-| $m^2$ | `m^2` | $\mathbb{R}^+$ | Square-meter area scaling parameter in Branch B | $\text{m}^2$ (Square meters) |
-| $\sigma$ | `σ` | $\mathbb{R}$ | Macroscopic stress / dissipation parameter coupled to radial integral | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` |
-| $r$ | `r` | $[0, -\frac{1}{12}] \subset \mathbb{R}$ | Radial integration coordinate across regularized domain | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` *(Negative radial limit)* |
-| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` *(Solver uses test kernel $f(r) = \exp(-r^2)$)* |
+| $\Delta_{(P_{(Square)} - P_{(Circle)})}$ | `∆_(P_(Square) - P_(Circle))` | $\mathbb{R}$ | Boundary perimeter / pressure differential between square domain and inscribed circle (Branch A) | `[Repository Gap — Author Clarification Required]` (Dimensionless or Pascals, Pa) |
+| $P_{(Square)}$ | `P_(Square)` | $\mathbb{R}^+$ | Rectilinear boundary perimeter metric of square cell ($4a$) | `[Repository Gap — Author Clarification Required]` |
+| $P_{(Circle)}$ | `P_(Circle)` | $\mathbb{R}^+$ | Curvilinear boundary circumference metric of inscribed circle ($\pi a$) | `[Repository Gap — Author Clarification Required]` |
+| $a$ | `a` | $\mathbb{R}, a \neq 0$ | Linear scaling parameter multiplying $(4 - \pi)$ in Branch A | `[Repository Gap — Author Clarification Required]` (Reference solver adopts $a = 101325.0$ Pa) |
+| $\Delta_{(L_{(Square)} - L_{(Circle)})}$ | `∆_(L_(Square) - L_(Circle))` | $\mathbb{R}^+$ | Area boundary differential between square domain and inscribed circular vortex (Branch B) | $m^2$ (Square meters) |
+| $L_{(Square)}$ | `L_(Square)` | $\mathbb{R}^+$ | Area of square computational domain ($m^2$) | $m^2$ (Square meters) |
+| $L_{(Circle)}$ | `L_(Circle)` | $\mathbb{R}^+$ | Area of inscribed circular domain ($\frac{\pi}{4} m^2 = (\pi \times 4^{-1}) m^2$) | $m^2$ (Square meters) |
+| $m^2$ | `m^2` | $\mathbb{R}^+$ | Square-meter area scaling parameter in Branch B | $m^2$ (Square meters) |
+| $\sigma$ | `σ` | $\mathbb{R}$ | Macroscopic stress / dissipation parameter coupled to radial integral | `[Repository Gap — Author Clarification Required]` |
+| $r$ | `r` | $[0, -\frac{1}{12}] \subset \mathbb{R}$ | Radial integration coordinate across regularized domain | `[Repository Gap — Author Clarification Required]` (Negative radial limit) |
+| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` (Solver uses test kernel $f(r) = \exp(-r^2)$ for verification) |
 | $s$ | `s` | $\mathbb{C}$ ($s = -1$) | Argument of the Riemann zeta function $\zeta(s)$ | Dimensionless |
 | $\zeta(s)$ | `ζ(s) = (-1/12)` | $\mathbb{Q} \subset \mathbb{R}$ | Regularization spectral upper cutoff fixed at $\zeta(-1) = -\frac{1}{12}$ | Dimensionless constant ($-\frac{1}{12} \approx -0.08333333333333333$) |
 | $\pi$ | `π` | $\mathbb{R}^+$ | Archimedes circle ratio isolated and reconstructed via $\sigma$ and $I_\zeta^{-1}$ | Dimensionless constant ($\approx 3.141592653589793$) |
-| $I_\zeta$ | `0ζs = -112r4frdr` | $\mathbb{R}^*$ | Fourth-order radial dissipation moment $\int_{0}^{-1/12} r^4 f(r)\,dr$ | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` |
-| $I_\zeta^{-1}$ | `(0ζs = -112r4frdr)-1` | $\mathbb{R}^*$ | Multiplicative inverse of fourth-order radial moment functional | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` |
-| $\mathbf{u}, p, \nu$ | `u, p, nu` | Vector / Scalar | Velocity field, pressure field, kinematic viscosity of Navier–Stokes PDE | `[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]` *(Continuum PDE coupling unstated)* |
+| $I_\zeta$ | `0ζs = -112r4frdr` | $\mathbb{R}, I_\zeta \neq 0$ | Fourth-order radial dissipation moment $\int_{0}^{-1/12} r^4 f(r)\,dr$ | `[Repository Gap — Author Clarification Required]` |
+| $I_\zeta^{-1}$ | `(0ζs = -112r4frdr)-1` | $\mathbb{R}, I_\zeta^{-1} \neq 0$ | Multiplicative inverse of fourth-order radial moment functional | `[Repository Gap — Author Clarification Required]` |
+| $\mathbf{u}, p, \nu$ | `u, p, nu` | Vector / Scalar | Velocity field, pressure field, kinematic viscosity of Navier–Stokes PDE | `[Repository Gap — Author Clarification Required]` (Continuum PDE coupling unstated) |
 
 ---
 
@@ -109,8 +107,8 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 > [!TIP]
 > **Inti Sari & Penjelasan Sederhana (*60-Second Human-Readable Overview*):**
 > - **Masalah Geometri & Fisika (Branch A & Branch B):** Dalam dinamika fluida, pusaran air atau udara (*vortex*) selalu berputar membentuk **lingkaran mulus** (rasio keliling/luas $\pi \approx 3{,}14159$). Namun pada simulasi komputer, ruang dihitung dalam **sel kisi kotak** (faktor metrik perimeter/luas $= 4$). Selisih di sudut kotak menghasilkan diskrepansi keliling $\Delta P = (4 - \pi) \times a \approx 0{,}8584 \times a$ dan diskrepansi luas $\Delta L = (1 - \frac{\pi}{4}) \times m^2 \approx 0{,}2146 \times m^2$.
-> - **Batas Cutoff Spektral Zeta Riemann ($\zeta(s) = -1/12$):** Agar integrasi energi pusaran fluida pada skala mikro ($r^4 f(r)$) tidak meledak menjadi tak terhingga (*divergen*), batas atas integral dikunci pada nilai perpanjangan analitik fungsi Zeta Riemann $\zeta(-1) = -\frac{1}{12}$.
-> - **Eliminasi Konstanta $\pi$ Secara Eksak:** Dengan menggabungkan persamaan geometri dan persamaan integral disipasi $\sigma$, konstanta $\pi$ dieliminasi secara aljabar menggunakan operator kebalikan integral $I_\zeta^{-1} = \left(\int_{0}^{-1/12} r^4 f(r)\,dr\right)^{-1}$, menghasilkan galat numerik **nol mutlak (`0.0000000000000000e+00`)**.
+> - **Batas Cutoff Spektral Zeta Riemann** ($\zeta(s) = -1/12$): Agar integrasi energi pusaran fluida pada skala mikro ($r^4 f(r)$) tidak meledak menjadi tak terhingga (*divergen*), batas atas integral dikunci pada nilai perpanjangan analitik fungsi Zeta Riemann $\zeta(-1) = -\frac{1}{12}$.
+> - **Eliminasi Konstanta π Secara Eksak:** Dengan menggabungkan persamaan geometri dan persamaan integral disipasi $\sigma$, konstanta $\pi$ dieliminasi secara aljabar menggunakan operator kebalikan integral $I_\zeta^{-1} = \left(\int_{0}^{-1/12} r^4 f(r)\,dr\right)^{-1}$, menghasilkan galat numerik **nol mutlak (`0.0000000000000000e+00`)**.
 
 The mathematical monograph authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** addresses a fundamental challenge at the intersection of computational fluid dynamics, discrete mathematics, and geometric regularization. When modeling continuous rotational fluid structures (such as vortex cores) inside discretized rectilinear numerical grids, a geometric incompatibility arises:
 - **Rectilinear Computational Grids:** Cartesian control volumes and finite-difference/volume meshes operate on rectangular geometries with orthogonal corners ($C^0$ boundary regularity), governed by the normalized perimeter/area metric coefficient $4$.
@@ -283,7 +281,7 @@ $$
 \Delta_{(L_{(Square)} - L_{(Circle)})} = \left(1 - \left(\left(4^{-1} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}\right)\right) \times m^2
 $$
 
-- *Audit Assessment:* The author directly replaced the composite term $(\pi \times 4^{-1})$ from Step 1 with $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$. Because $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ algebraically evaluates to $\frac{m^2 - \Delta L}{m^2} \equiv \frac{\pi}{4}$, this direct substitution preserves exact numerical and physical equality with $(1 - \frac{\pi}{4}) m^2$. The live manuscript **retains $4^{-1}$ ONCE** in Step 7 (P45) and does **NOT** introduce $4^{-2}$.
+- *Audit Assessment:* The author directly replaced the composite term $(\pi \times 4^{-1})$ from Step 1 with $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$. Because $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ algebraically evaluates to $\frac{m^2 - \Delta L}{m^2} \equiv \frac{\pi}{4}$, this direct substitution preserves exact numerical and physical equality with $(1 - \frac{\pi}{4}) m^2$. The live manuscript **retains** $4^{-1}$ **ONCE** in Step 7 (P45) and does **NOT** introduce $4^{-2}$.
 - *Standard Enforced:* Rather than artificially altering the author's text by inserting $4 \times$ into P35–P41, this documentation preserves the author's verbatim OMML equations while transparently auditing this substitution convention.
 
 #### 5. Analytic & PDE Coupling Audit
@@ -297,10 +295,10 @@ $$
 
 > [!NOTE]
 > **Kamus Singkatan Notasi (*Quick Notation Guide for Rapid Reading*):**
-> - **$\Delta P \equiv \Delta_{(P_{(Square)} - P_{(Circle)})}$**: Selisih batas keliling/tekanan persegi dikurangi lingkaran (Branch A).
-> - **$\Delta L \equiv \Delta_{(L_{(Square)} - L_{(Circle)})}$**: Selisih luas bujur sangkar dikurangi lingkaran dalam satuan meter persegi (Branch B).
-> - **$I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$**: Momen disipasi radial orde ke-4 dengan batas spektral $\zeta(-1) = -\frac{1}{12}$.
-> - **$I_\zeta^{-1} \equiv \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$**: Invers operator dari integral radial $I_\zeta$.
+> - $\Delta P \equiv \Delta_{(P_{(Square)} - P_{(Circle)})}$ — Selisih batas keliling/tekanan persegi dikurangi lingkaran (Branch A).
+> - $\Delta L \equiv \Delta_{(L_{(Square)} - L_{(Circle)})}$ — Selisih luas bujur sangkar dikurangi lingkaran dalam satuan meter persegi (Branch B).
+> - $I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ — Momen disipasi radial orde ke-4 dengan batas spektral $\zeta(-1) = -\frac{1}{12}$.
+> - $I_\zeta^{-1} \equiv \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$ — Invers operator dari integral radial $I_\zeta$.
 
 | Langkah | Fokus Aljabar | Branch A: Keliling / Tekanan ($\Delta P$) | Branch B: Luas Permukaan ($\Delta L$) | Peran Transformasi Aljabar |
 | :---: | :--- | :--- | :--- | :--- |
@@ -429,7 +427,7 @@ $$
 $$
 
 #### Step 3 — Algebraic Isolation of π from Area Difference (P35)
-- **Penjelasan Mudah:** Mengisolasi nilai rasio luas dari persamaan Step 1 *(catatan audit Scopus Q1: manuskrip asli menuliskan persamaan aljabar ini secara verbatim tanpa menyertakan faktor pengali $4$)*.
+- **Penjelasan Mudah:** Mengisolasi nilai rasio luas dari persamaan Step 1 (catatan audit Scopus Q1: manuskrip asli menuliskan persamaan aljabar ini secara verbatim tanpa menyertakan faktor pengali $4$ dalam rumus isolasi).
 - **Bentuk Ringkas:** $\pi = \frac{m^2 - \Delta L}{m^2}$
 - **Bentuk Lengkap Manuskrip:**
 
@@ -579,7 +577,7 @@ flowchart LR
   1. Validate prerequisite: Riemann zeta function analytic continuation at $s = -1$ ($\zeta(-1) = -\frac{1}{12}$).
   2. Render Step 2 formula in display math with dual-layer notation.
   3. Validate all variables ($\sigma, r, f(r), \zeta(s)$) against the Nomenclature table.
-  4. Pose comprehension gate: *"Mengapa batas atas integral $-\frac{1}{12}$ mencegah singularitas pada skala vortex mikro?"*
+  4. Pose comprehension gate: "Mengapa batas atas integral $-\frac{1}{12}$ mencegah singularitas pada skala vortex mikro?"
 - **Worked Example Output:**
   > **[MODUL BELAJAR STEP 2 — BRANCH A]**
   > - **Prasyarat:** Kalkulus integral tentu satu dimensi dan perpanjangan analitik Riemann $\zeta(-1) = -\frac{1}{12}$.
@@ -1018,7 +1016,7 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 3. **Comprehensive Catalog of Flagged Repository Gaps (`[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]`):**
    - **Prose Definitions and SI Units:** Physical units for $P_{(Square)}$, $P_{(Circle)}$, $a$, $\sigma$, and $r$ are not stated in prose in the `.docx`/`.pdf`.
    - **Continuum Navier-Stokes PDE Reduction:** The formal derivation bridging 3D incompressible Navier–Stokes equations to algebraic boundary relations is unstated.
-   - **Radial Kernel Function $f(r)$:** The functional definition of $f(r)$ is left symbolic in the manuscript.
+   - **Radial Kernel Function** ($f(r)$): The functional definition of $f(r)$ is left symbolic in the manuscript.
    - **Negative Integration Domain:** The physical coordinate justification for integration over $[0, -1/12]$ is unstated.
 4. **Automated Verification Gate Attestation:**
    - `python solver.py --verify` executed with `absolute_residual_error : +0.0000000000000000e+00` (`PASS`).
