@@ -573,7 +573,7 @@ flowchart LR
 - **Execution Logic:**
   1. Validate prerequisite: Riemann zeta function analytic continuation at $s = -1$ ($\zeta(-1) = -\frac{1}{12}$).
   2. Render Step 2 formula in display math with dual-layer notation.
-  3. Validate all variables ($\sigma, r, f(r), \zeta(s)$) against the Nomenclature table.
+  3. Validate all variables $(\sigma, r, f(r), \zeta(s))$ against the Nomenclature table.
   4. Pose comprehension gate: "Mengapa batas atas integral $-\frac{1}{12}$ mencegah singularitas pada skala vortex mikro?"
 - **Worked Example Output:**
   > **[MODUL BELAJAR STEP 2 — BRANCH A]**
