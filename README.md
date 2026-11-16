@@ -965,7 +965,7 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 4. **Branch B Factor-of-4^(-1) Algebraic Substitution Convention:**
    - In Branch B, the live manuscript omits the factor $4$ multiplier in Step 3 (Paragraph P35: $\pi = \frac{m^2 - \Delta L}{m^2}$) and retains $4^{-1}$ once in Step 7 (Paragraph P45: $\Delta L = [1 - (4^{-1} \times 15 \times \sigma \times I_\zeta^{-1})] \times m^2$). While this direct substitution preserves exact geometric equality with $(1 - \frac{\pi}{4}) \times m^2$, formal mathematical notation conventions are highlighted for future publication refinement.
 5. **Computational Validation Roadmap:**
-   - Future work by the author or independent researchers should address: (a) formulating boundary conditions on a three-dimensional compact domain $\Omega \subset \mathbb{R}^3$, (b) calibrating the stress parameter $\sigma$ against experimental Taylor-Couette or lid-driven cavity flow benchmarks, and (c) establishing Sobolev space regularity bounds ($H^1(\Omega)$ or $H^2(\Omega)$) for velocity fields governed by these algebraic boundary constraints.
+   - Future work by the author or independent researchers should address: (a) formulating boundary conditions on a three-dimensional compact domain $\Omega \subset \mathbb{R}^3$, (b) calibrating the stress parameter $\sigma$ against experimental Taylor-Couette or lid-driven cavity flow benchmarks, and (c) establishing Sobolev space regularity bounds ($H^1(\Omega)$) or ($H^2(\Omega)$) for velocity fields governed by these algebraic boundary constraints.
 
 ---
 
