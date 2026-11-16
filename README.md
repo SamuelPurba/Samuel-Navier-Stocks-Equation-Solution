@@ -997,25 +997,6 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 ---
 
-## Repository Audit Log
+## 📜 Lisensi & Hak Cipta Statement
 
-1. **Inspected and Accessible Repository Files:**
-   - [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (`16,643 bytes`, modified `2026-11-16`): Extracted and parsed via Office Open XML Math (`word/document.xml`, Paragraphs `P01`–`P45`).
-   - [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (`239,799 bytes`, Pages 1–5): Inspected stream encoding, identified Cambria Math CMap font truncation, and performed complete PDF/OCR sanitization.
-   - [`solver.py`](./solver.py) (`6,686 bytes`, 201 lines): Verified 100% Python standard library zero-dependency numerical solver; exact bitwise parity embedded in Section IV.C.
-   - [`test_solver.py`](./test_solver.py): Automated test suite verified externally via `python -m unittest discover -v` (10/10 tests passing with 0 failures and 0 errors).
-   - [`AGENTS.md`](./AGENTS.md): Full compliance with all four pillars of IEEE/Scopus Q1 documentation and verification standards.
-   - [`avatar_profile.png`](./avatar_profile.png): Author portrait verified in workspace root.
-2. **Authorial Persona and Style Calibration:**
-   - Author: **Samuel Hasiholan Omega Purba, S. Tr. T.**
-   - Affiliation: Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam.
-   - Reconciled Repository Alias: `"Samuel–Avier Stocks Equation Solution"` canonically reconciled with the authoritative manuscript title `"Samuel – Navier Stocks Equation Solution"`.
-3. **Comprehensive Catalog of Flagged Repository Gaps (`[Repository Gap — Author Clarification Required]` / `[Author Clarification Required — Not Specified in Repository]`):**
-   - **Prose Definitions and SI Units:** Physical units for $P_{(Square)}$, $P_{(Circle)}$, $a$, $\sigma$, and $r$ are not stated in prose in the `.docx`/`.pdf`.
-   - **Continuum Navier-Stokes PDE Reduction:** The formal derivation bridging 3D incompressible Navier–Stokes equations to algebraic boundary relations is unstated.
-   - **Radial Kernel Function** ($f(r)$): The functional definition of $f(r)$ is left symbolic in the manuscript.
-   - **Negative Integration Domain:** The physical coordinate justification for integration over $[0, -1/12]$ is unstated.
-4. **Automated Verification Gate Attestation:**
-   - `python solver.py --verify` executed with `absolute_residual_error : +0.0000000000000000e+00` (`PASS`).
-   - `python -m unittest discover -v` executed with `10/10` tests passing (`0` failures, `0` errors).
-   - Rendering Hygiene: `0` prohibited delimiters, `0` delimiters in integral limits, dedicated-line display math delimiters, `0` math in headings, `0` raw pipes in table math cells, and `27/27` Table of Contents anchor links verified.
+Proyek ini didistribusikan di bawah **[Lisensi MIT](LICENSE)**. Hak Cipta © 2026 Samuel Hasiholan Omega, S. Tr. T. .Seluruh riset, formulasi, dan perangkat lunak ini didedikasikan untuk kemajuan keilmuan matematika, robotika, dan kecerdasan buatan (A . I) Indonesia.
