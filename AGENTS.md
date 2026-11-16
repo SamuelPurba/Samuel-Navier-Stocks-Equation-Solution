@@ -24,12 +24,17 @@ When authoring or updating scientific documentation, mathematical monographs, or
 
 ## 4. Canonical Author Identity, Core Equations & Architecture Invariants
 - **Author & Affiliation:** Always credit **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Department of Electrical Engineering / Teknik Elektro, Study Program in Robotics and Artificial Intelligence Engineering / Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*).
+- **Repository Alias Reconciliation:** Transparently reconcile the repository alias (*"Samuel–Avier Stocks Equation Solution"*) with the canonical manuscript title (*"Samuel – Navier Stocks Equation Solution"*) in the header badges/title block and Abstract.
+- **Dual-Branch Mathematical Formulation & Integrity Audit:**
+  - Document **Branch A** ($\Delta_{(P_{(Square)} - P_{(Circle)})} = (4 - \pi) \times a$, Steps 1–7) and **Branch B** ($\Delta_{(L_{(Square)} - L_{(Circle)})} = (1 - \pi \times 4^{-1}) \times m^2$, Steps 1–7) cleanly in numbered display math (`$$`), cross-checked against the live `.docx` (`P01`–`P45`) and `.pdf` revisions.
+  - **PDF/OCR Sanitization:** Exclude PDF text-extraction artifacts (stray $\theta$ symbols, malformed angle-bracket $\pi$ fractions, `f_0` instead of `\int_0`, and garbled subscripts) in favor of clean `.docx` OMML notation.
+  - **Factor-of-$4^{-1}$ Substitution Audit:** Explicitly examine Branch B Step 1 ($\pi \times 4^{-1}$) combined with Step 3 ($\frac{m^2 - \Delta L}{m^2}$ vs. $4 \times \frac{m^2 - \Delta L}{m^2}$) and Step 6–7 ($\pi$ vs. $\pi \times 4^{-1}$), reporting transparently whether the live manuscript retains $4^{-1}$ once or introduces $4^{-2}$ without silently altering source equations.
 - **Required IEEE Section Hierarchy:**
   1. Title, Academic Header & Verified Badges
   2. Abstract (150–250 words) & *Index Terms*
   3. Nomenclature Table (with explicit `[Repository Gap — Author Clarification Required]` tags for unstated units/definitions)
   4. *I. Introduction* (Motivation, Geometric Schematic, Spectral Cutoff Intuition, Scope)
-  5. *II. Mathematical Framework and Step-by-Step Derivation* (Cross-check of $\pi = 4 - \frac{\Delta}{a}$ vs. $\pi = \frac{4 - \Delta}{a}$ and $\frac{2}{30} \to \frac{1}{15}$ vs. $\frac{8}{30} \to \frac{4}{15}$, Core 6-Step Sequence, and Complete `.docx`/`.pdf` Derivations)
+  5. *II. Mathematical Framework and Step-by-Step Derivation* (Cross-check of $\pi = 4 - \frac{\Delta}{a}$ vs. $\pi = \frac{4 - \Delta}{a}$ and $\frac{2}{30} \to \frac{1}{15}$ vs. $\frac{8}{30} \to \frac{4}{15}$, Core Sequence, Branch A & Branch B Derivations, and Mathematical Audit & Verification)
   6. *III. Interactive Command Protocols* (`/Team-Viewer`, `/learn`, `/humanize` specification table, Mermaid workflow, and example prompts)
   7. *IV. Repository Structure and Reproducibility* (Directory tree, zero-dependency `solver.py`, and verified console output)
   8. *V. Limitations, Open Questions and Future Work*

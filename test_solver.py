@@ -275,12 +275,11 @@ class TestSamuelNavierStokesSolver(unittest.TestCase):
         non_code = re.sub(r"```.*?```", "", content, flags=re.DOTALL)
         headings = []
         for line_no, line in enumerate(non_code.splitlines(), start=1):
-            stripped = line.lstrip("> ").strip()
-            if "$$" in stripped:
+            if "$$" in line:
                 self.assertEqual(
-                    stripped,
+                    line.strip(),
                     "$$",
-                    f"Line {line_no} has inline '$$...$$'; put '$$' on its own line: {line}",
+                    f"Line {line_no} must have '$$' strictly on its own dedicated line: {line}",
                 )
             if line.startswith("#"):
                 self.assertNotIn(
@@ -311,6 +310,48 @@ class TestSamuelNavierStokesSolver(unittest.TestCase):
                 self.assertNotIn("}", lbl, f"Mermaid block {idx} label contains '}}': {lbl}")
                 self.assertNotIn("|", lbl, f"Mermaid block {idx} label contains '|': {lbl}")
                 self.assertNotIn(">", lbl, f"Mermaid block {idx} label contains '>': {lbl}")
+
+        # 6. Verify mandatory gap tags for IEEE and repository anti-hallucination compliance
+        self.assertIn(
+            "[Repository Gap — Author Clarification Required]",
+            content,
+            "Missing [Repository Gap — Author Clarification Required] tag in README.md!",
+        )
+        self.assertIn(
+            "[Author Clarification Required — Not Specified in Repository]",
+            content,
+            "Missing [Author Clarification Required — Not Specified in Repository] tag in README.md!",
+        )
+        # Ensure gap tags are not redundantly nested or stuttered
+        self.assertNotIn(
+            "[Repository Gap — Author Clarification Required] / [Repository Gap — Author Clarification Required]",
+            content,
+            "Redundant duplicate gap tag found in README.md!",
+        )
+        self.assertNotIn(
+            "([Repository Gap — Author Clarification Required] ([Author Clarification Required",
+            content,
+            "Nested stuttering gap tag found in README.md!",
+        )
+        self.assertNotIn(
+            "([Repository Gap — Author Clarification Required] ([Repository Gap",
+            content,
+            "Triply nested gap tag found in README.md!",
+        )
+        # Ensure gap tags are not corrupted by internal text within tag brackets
+        self.assertNotIn(
+            "[Author Clarification Required — Not Specified in Repository:",
+            content,
+            "Corrupted gap tag with internal suffix found in README.md!",
+        )
+        self.assertNotIn(
+            "[Repository Gap — Author Clarification Required:",
+            content,
+            "Corrupted repository gap tag with internal suffix found in README.md!",
+        )
+        # Ensure accurate 5-page PDF representation
+        self.assertIn("Pages 1–5", content, "README.md should accurately reference Pages 1–5 of the updated PDF")
+        self.assertNotIn("Pages 1–4", content, "README.md contains obsolete Pages 1–4 reference")
 
 
 if __name__ == "__main__":
