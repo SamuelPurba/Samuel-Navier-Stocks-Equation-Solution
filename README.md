@@ -1,5 +1,6 @@
-# Samuel – Navier Stocks Equation Solution
+# Navier–Stokes Equations Solution
 
+### Canonical Manuscript Title: *Samuel – Navier Stocks Equation Solution*
 **Analytic-Geometric Boundary Regularization, Fourth-Order Radial Dissipation Coupling, and Spectral Zeta-Function Closure for Incompressible Viscous Flows**
 
 [![Document Standard](https://img.shields.io/badge/Standard-IEEE_Transactions_%2F_Scopus_Q1-00629B?style=for-the-badge&logo=ieee&logoColor=white)](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf)
