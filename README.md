@@ -87,7 +87,7 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 | $m^2$ | `m^2` | $\mathbb{R}^+$ | Square-meter area scaling parameter in Branch B | $m^2$ (Square meters) |
 | $\sigma$ | `σ` | $\mathbb{R}$ | Macroscopic stress / dissipation parameter coupled to radial integral | `[Repository Gap — Author Clarification Required]` |
 | $r$ | `r` | $[0, -\frac{1}{12}] \subset \mathbb{R}$ | Radial integration coordinate across regularized domain | `[Repository Gap — Author Clarification Required]` (Negative radial limit) |
-| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` (Solver uses test kernel ($f{r}$) = ($\exp{-r^2}$) for verification) |
+| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` (Solver uses test kernel ($f{(r)}$) = ($\exp{(-r^2)}$) for verification) |
 | $s$ | `s` | $\mathbb{C}$ ($s = -1$) | Argument of the Riemann zeta function $\zeta(s)$ | Dimensionless |
 | $\zeta(s)$ | `ζ(s) = (-1/12)` | $\mathbb{Q} \subset \mathbb{R}$ | Regularization spectral upper cutoff fixed at $\zeta(-1) = -\frac{1}{12}$ | Dimensionless constant ($-\frac{1}{12} \approx -0.08333333333333333$) |
 | $\pi$ | `π` | $\mathbb{R}^+$ | Archimedes circle ratio isolated and reconstructed via $\sigma$ and $I_\zeta^{-1}$ | Dimensionless constant ($\approx 3.141592653589793$) |
