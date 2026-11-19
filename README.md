@@ -12,10 +12,10 @@
 <table>
   <tr>
     <td width="140" align="center">
-      <img src="./avatar_profile.png" alt="Samuel Hasiholan Omega Purba, S. Tr. T." width="120">
+      <img src="./avatar_profile.png" alt="Samuel Hasiholan Omega, S. Tr. T." width="120">
     </td>
     <td>
-      <h3>Samuel Hasiholan Omega Purba, S. Tr. T.</h3>
+      <h3>Samuel Hasiholan Omega, S. Tr. T.</h3>
       <p>
         <strong>Principal Investigator &amp; Author</strong><br>
         Department of Electrical Engineering (<em>Teknik Elektro</em>)<br>
@@ -65,7 +65,7 @@
 
 ## Abstract
 
-This repository documents the analytical and symbolic formulation titled **"Samuel – Navier Stocks Equation Solution"** (active repository title: **"Samuel–Navier Stocks Equation Solution"**), authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Department of Electrical Engineering / Teknik Elektro, Study Program in Robotics and Artificial Intelligence Engineering / Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). Across the live 52-paragraph manuscript (`P01–P52`), the work investigates algebraic coupling across three domains: the rectilinear-to-curvilinear perimeter/pressure differential $\Delta_{(P_{(Square)} - P_{(Circle)})}$ (Branch A, `P07–P29`), the area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ (Branch B, `P31–P45`), and the Einstein tensor field extension $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (Paragraphs `P46–P52`). Both geometric branches couple to a fourth-order radial integral functional $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ regularized at the Riemann zeta value $\zeta(-1) = -\frac{1}{12}$. By isolating $\pi$ and substituting it into the dissipation relation $\frac{8 \times \pi}{30}$, algebraic reduction to $\frac{4}{15}$ (or quadrant-normalized $\frac{1}{15}$) and inverse-operator isolation eliminate $\pi$ in closed form for Branches A and B, and simplify the Einstein field equation to $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$. Grounded against the authoritative `.docx` (`P01–P52`) and 5-page `.pdf`, this IEEE-compliant monograph catalogs complete symbols with explicit gap tags, defines interactive command protocols (`/Team-Viewer`, `/learn`, `/humanize`), provides a zero-dependency Python 3 verification solver (`solver.py`, `0.0` residual on Branch A), documents the optional MP4 simulation renderer (`generate_simulation.py`), and delivers a rigorous mathematical integrity audit.
+This repository documents the analytical and symbolic formulation titled **"Samuel – Navier Stocks Equation Solution"** (active repository title: **"Samuel–Navier Stocks Equation Solution"**), authored by **Samuel Hasiholan Omega, S. Tr. T.** (*Department of Electrical Engineering / Teknik Elektro, Study Program in Robotics and Artificial Intelligence Engineering / Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). Across the live 52-paragraph manuscript (`P01–P52`), the work investigates algebraic coupling across three domains: the rectilinear-to-curvilinear perimeter/pressure differential $\Delta_{(P_{(Square)} - P_{(Circle)})}$ (Branch A, `P07–P29`), the area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ (Branch B, `P31–P45`), and the Einstein tensor field extension $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (Paragraphs `P46–P52`). Both geometric branches couple to a fourth-order radial integral functional $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ regularized at the Riemann zeta value $\zeta(-1) = -\frac{1}{12}$. By isolating $\pi$ and substituting it into the dissipation relation $\frac{8 \times \pi}{30}$, algebraic reduction to $\frac{4}{15}$ (or quadrant-normalized $\frac{1}{15}$) and inverse-operator isolation eliminate $\pi$ in closed form for Branches A and B, and simplify the Einstein field equation to $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$. Grounded against the authoritative `.docx` (`P01–P52`) and 5-page `.pdf`, this IEEE-compliant monograph catalogs complete symbols with explicit gap tags, defines interactive command protocols (`/Team-Viewer`, `/learn`, `/humanize`), provides a zero-dependency Python 3 verification solver (`solver.py`, `0.0` residual on Branch A), documents the optional MP4 simulation renderer (`generate_simulation.py`), and delivers a rigorous mathematical integrity audit.
 
 **Index Terms—** *Algebraic operator inversion, Einstein tensor coupling, fourth-order radial integral, geometric boundary differential, Navier–Stokes equation, Riemann zeta regularization.*
 
@@ -112,7 +112,7 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 > - **Eliminasi Konstanta π Secara Eksak:** Dengan menggabungkan persamaan geometri dan persamaan integral disipasi $\sigma$, konstanta $\pi$ dieliminasi secara aljabar menggunakan operator kebalikan integral $I_\zeta^{-1} = \left(\int_{0}^{-1/12} r^4 f(r)\,dr\right)^{-1}$, menghasilkan galat numerik **nol mutlak (`0.0000000000000000e+00`)** pada Branch A di `solver.py`.
 > - **Ekstensi Tensor Einstein (`P46–P52`):** Ekspresi tertutup $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ disubstitusikan langsung ke persamaan medan Einstein $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46`) sehingga menyederhanakan koefisien $8 \times 4^{-1} \times 15 = 30$ menjadi $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P52`).
 
-The mathematical monograph authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** addresses a fundamental challenge at the intersection of computational fluid dynamics, discrete mathematics, and geometric regularization. When modeling continuous rotational fluid structures (such as vortex cores) inside discretized rectilinear numerical grids, a geometric incompatibility arises:
+The mathematical monograph authored by **Samuel Hasiholan Omega, S. Tr. T.** addresses a fundamental challenge at the intersection of computational fluid dynamics, discrete mathematics, and geometric regularization. When modeling continuous rotational fluid structures (such as vortex cores) inside discretized rectilinear numerical grids, a geometric incompatibility arises:
 - **Rectilinear Computational Grids:** Cartesian control volumes and finite-difference/volume meshes operate on rectangular geometries with orthogonal corners ($C^0$ boundary regularity), governed by the normalized perimeter/area metric coefficient $4$.
 - **Curvilinear Physical Vortices:** Incompressible fluid streamlines and Rankine/Lamb–Oseen vortex cores possess axisymmetric circular geometries ($C^\infty$ boundary regularity), governed by the transcendental ratio $\pi \approx 3.14159265$.
 
@@ -552,7 +552,7 @@ For complete archival traceability, the exact verbatim formulas extracted from `
 | Paragraph | Target Branch | Algebraic Operation / Equation Description | Verbatim Manuscript OMML Notation |
 | :---: | :---: | :--- | :--- |
 | **P01** | Header | Monograph Canonical Title | `Samuel – Navier Stocks Equation Solution` |
-| **P02** | Header | Author Identification | `by : Samuel Hasiholan Omega Purba, S. Tr. T.` |
+| **P02** | Header | Author Identification | `by : Samuel Hasiholan Omega, S. Tr. T.` |
 | **P03** | Header | Departmental Affiliation | `Teknik Elektro` |
 | **P04** | Header | Study Program Affiliation | `Prodi Teknik Robotika dan Kecerdasan buatan` |
 | **P05** | Header | Institutional Affiliation | `Politeknik Negeri Batam` |
@@ -759,7 +759,7 @@ The embedded Python code below is bitwise identical to [`solver.py`](./solver.py
 ```python
 """
 Samuel-Navier-Stokes Equation Solution — Reference Numerical Verification Solver
-Author      : Samuel Hasiholan Omega Purba, S. Tr. T.
+Author      : Samuel Hasiholan Omega, S. Tr. T.
 Department  : Teknik Elektro - Prodi Teknik Robotika dan Kecerdasan Buatan
 Institution : Politeknik Negeri Batam
 Description : Zero-dependency IEEE-754 double-precision solver verifying
@@ -1053,13 +1053,13 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 ### A. Formal IEEE Citation Entry
 
-> **[1]** S. H. O. Purba, "Samuel – Navier Stocks Equation Solution," Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam, Batam, Kepulauan Riau, Indonesia, Technical Monograph, Nov. 2026.
+> **[1]** S. H. Omega, "Samuel – Navier Stocks Equation Solution," Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam, Batam, Kepulauan Riau, Indonesia, Technical Monograph, Nov. 2026.
 
 ### B. BibTeX Citation Block
 
 ```bibtex
-@misc{Purba2026SamuelNavierStocks,
-  author       = {Purba, Samuel Hasiholan Omega},
+@misc{Omega2026SamuelNavierStocks,
+  author       = {Omega, Samuel Hasiholan},
   title        = {{Samuel -- Navier Stocks Equation Solution}},
   howpublished = {Department of Electrical Engineering (Teknik Elektro), Study Program in Robotics and Artificial Intelligence Engineering (Prodi Teknik Robotika dan Kecerdasan buatan), Politeknik Negeri Batam},
   address      = {Batam, Kepulauan Riau, Indonesia},
@@ -1073,7 +1073,7 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 *(Note: The primary manuscript contains no external bibliographic citations (`[Repository Gap — Author Clarification Required]`). The foundational mathematical and fluid dynamics works below are cataloged for contextual literature benchmarking.)*
 
-- **[1]** S. H. O. Purba, *Samuel – Navier Stocks Equation Solution*. Batam, Indonesia: Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam, 2026.
+- **[1]** S. H. Omega, *Samuel – Navier Stocks Equation Solution*. Batam, Indonesia: Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam, 2026.
 - **[2]** C. L. Fefferman, "Existence and smoothness of the Navier–Stokes equation," in *The Millennium Prize Problems*, J. Carlson, A. Jaffe, and A. Wiles, Eds. Providence, RI, USA: Amer. Math. Soc., 2006, pp. 57–67.
 - **[3]** G. K. Batchelor and I. Proudman, "The large-scale structure of homogeneous turbulence," *Phil. Trans. R. Soc. Lond. A*, vol. 248, no. 949, pp. 369–405, 1956.
 - **[4]** E. Elizalde *et al.*, *Zeta Regularization Techniques with Applications*. Singapore: World Scientific, 1994.
@@ -1082,4 +1082,4 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 ## 📜 Lisensi & Hak Cipta Statement
 
-Proyek ini didistribusikan di bawah **[Lisensi MIT](LICENSE)**. Hak Cipta © 2026 Samuel Hasiholan Omega, S. Tr. T. .Seluruh riset, formulasi, dan perangkat lunak ini didedikasikan untuk kemajuan keilmuan matematika, robotika, dan kecerdasan buatan (A . I) Indonesia.
+Proyek ini didistribusikan di bawah **[Lisensi MIT](LICENSE)**. Hak Cipta © 2026 Samuel Hasiholan Omega, S. Tr. T. . Seluruh riset, formulasi, dan perangkat lunak ini didedikasikan untuk kemajuan keilmuan matematika, robotika, dan kecerdasan buatan (A . I) Indonesia.
