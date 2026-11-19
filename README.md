@@ -1,7 +1,7 @@
 # Navier–Stokes Equations Solution
 
 ### Canonical Manuscript Title: *Samuel – Navier Stocks Equation Solution* | Active Repository Title: *Samuel–Navier Stocks Equation Solution*
-**Analytic-Geometric Boundary Regularization, Fourth-Order Radial Dissipation Coupling, Spectral Zeta-Function Closure, and Einstein Tensor Coupling for Incompressible Viscous Flows**
+**Analytic-Geometric Boundary Regularization, Fourth-Order Radial Dissipation Coupling, Spectral Zeta-Function Closure, Einstein Tensor Coupling, and Heisenberg Uncertainty Principle Extension for Incompressible Viscous Flows**
 
 [![Document Standard](https://img.shields.io/badge/Standard-IEEE_Transactions_%2F_Scopus_Q1-00629B?style=for-the-badge&logo=ieee&logoColor=white)](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf)
 [![Primary Source](https://img.shields.io/badge/Manuscript-PDF_%26_DOCX_Verified-2EA44F?style=for-the-badge)](./Samuel-Navier%20Stocks%20Equation%20Solution.docx)
@@ -12,10 +12,10 @@
 <table>
   <tr>
     <td width="140" align="center">
-      <img src="./avatar_profile.png" alt="Samuel Hasiholan Omega, S. Tr. T." width="120">
+      <img src="./avatar_profile.png" alt="Samuel Hasiholan Omega Purba, S. Tr. T." width="120">
     </td>
     <td>
-      <h3>Samuel Hasiholan Omega, S. Tr. T.</h3>
+      <h3>Samuel Hasiholan Omega Purba, S. Tr. T.</h3>
       <p>
         <strong>Principal Investigator &amp; Author</strong><br>
         Department of Electrical Engineering (<em>Teknik Elektro</em>)<br>
@@ -42,11 +42,12 @@
   - [D. Scope: What This Repository Solves vs. Open Questions](#d-scope-what-this-repository-solves-vs-open-questions)
 - [II. Mathematical Framework and Step-by-Step Derivation](#ii-mathematical-framework-and-step-by-step-derivation)
   - [A. Mathematical Integrity Audit: Grouping and Coefficient Conventions](#a-mathematical-integrity-audit-grouping-and-coefficient-conventions)
-  - [B. Tri-Domain Derivation Summary and Notation Guide](#b-tri-domain-derivation-summary-and-notation-guide)
+  - [B. Quad-Domain Derivation Summary and Notation Guide](#b-quad-domain-derivation-summary-and-notation-guide)
   - [C. Branch A Derivation: Perimeter and Boundary Discrepancy](#c-branch-a-derivation-perimeter-and-boundary-discrepancy)
   - [D. Branch B Derivation: Area Discrepancy](#d-branch-b-derivation-area-discrepancy)
   - [E. Einstein Tensor Extension (P46–P52)](#e-einstein-tensor-extension-p46p52)
-  - [F. Archival Manuscript Equations from DOCX and PDF (P01–P52)](#f-archival-manuscript-equations-from-docx-and-pdf-p01p52)
+  - [F. Heisenberg Uncertainty Principle Extension (P54–P68)](#f-heisenberg-uncertainty-principle-extension-p54p68)
+  - [G. Archival Manuscript Equations from DOCX and PDF (P01–P68)](#g-archival-manuscript-equations-from-docx-and-pdf-p01p68)
 - [III. Interactive Command Protocols](#iii-interactive-command-protocols)
   - [A. Command Protocol Specification Table](#a-command-protocol-specification-table)
   - [B. Command Syntax, Execution Logic, and Worked Examples](#b-command-syntax-execution-logic-and-worked-examples)
@@ -65,15 +66,15 @@
 
 ## Abstract
 
-This repository documents the analytical and symbolic formulation titled **"Samuel – Navier Stocks Equation Solution"** (active repository title: **"Samuel–Navier Stocks Equation Solution"**), authored by **Samuel Hasiholan Omega, S. Tr. T.** (*Department of Electrical Engineering / Teknik Elektro, Study Program in Robotics and Artificial Intelligence Engineering / Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). Across the live 52-paragraph manuscript (`P01–P52`), the work investigates algebraic coupling across three domains: the rectilinear-to-curvilinear perimeter/pressure differential $\Delta_{(P_{(Square)} - P_{(Circle)})}$ (Branch A, `P07–P29`), the area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ (Branch B, `P31–P45`), and the Einstein tensor field extension $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (Paragraphs `P46–P52`). Both geometric branches couple to a fourth-order radial integral functional $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ regularized at the Riemann zeta value $\zeta(-1) = -\frac{1}{12}$. By isolating $\pi$ and substituting it into the dissipation relation $\frac{8 \times \pi}{30}$, algebraic reduction to $\frac{4}{15}$ (or quadrant-normalized $\frac{1}{15}$) and inverse-operator isolation eliminate $\pi$ in closed form for Branches A and B, and simplify the Einstein field equation to $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$. Grounded against the authoritative `.docx` (`P01–P52`) and 5-page `.pdf`, this IEEE-compliant monograph catalogs complete symbols with explicit gap tags, defines interactive command protocols (`/Team-Viewer`, `/learn`, `/humanize`), provides a zero-dependency Python 3 verification solver (`solver.py`, `0.0` residual on Branch A), documents the optional MP4 simulation renderer (`generate_simulation.py`), and delivers a rigorous mathematical integrity audit.
+This repository documents the analytical and symbolic formulation titled **"Samuel – Navier Stocks Equation Solution"** (active repository title: **"Samuel–Navier Stocks Equation Solution"**), authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** (*Department of Electrical Engineering / Teknik Elektro, Study Program in Robotics and Artificial Intelligence Engineering / Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam*). Across the updated 69-paragraph manuscript (37 non-empty content paragraphs spanning `P01–P68`, 32 blank separators), the monograph investigates algebraic coupling across four domains: the rectilinear-to-curvilinear perimeter/pressure differential $\Delta_{(P_{(Square)} - P_{(Circle)})}$ (Branch A, `P07–P29`), the area differential $\Delta_{(L_{(Square)} - L_{(Circle)})}$ (Branch B, `P31–P45`), the Einstein tensor field extension $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46–P52`), and the Heisenberg uncertainty principle extension $(\Delta x \times \Delta p) \ge \frac{\hbar}{2}$ (`P54–P68`), which adopts the explicit shorthand $I_\zeta$ in `P66–P68`. All four domains couple to the fourth-order radial integral $I_\zeta = \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ regularized at $\zeta(-1) = -\frac{1}{12}$, yielding $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$, simplifying $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$, and canceling $4 \times 4^{-1} = 1$ in $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$ under full-circle manuscript normalization ($\sigma_{\text{manuscript}} < 0$). Grounded against the authoritative `.docx` (`P01–P68`) and 6-page `.pdf` (`Pages 1–6`), this IEEE monograph catalogs all symbols with explicit gap tags, defines `/Team-Viewer`, `/learn`, and `/humanize` protocols, verifies Branch A numerically via zero-dependency `solver.py` (`0.0` residual), and audits cross-domain normalization invariants.
 
-**Index Terms—** *Algebraic operator inversion, Einstein tensor coupling, fourth-order radial integral, geometric boundary differential, Navier–Stokes equation, Riemann zeta regularization.*
+**Index Terms—** *Algebraic operator inversion, Einstein tensor coupling, fourth-order radial integral, geometric boundary differential, Heisenberg uncertainty principle, Navier–Stokes equation, Riemann zeta regularization.*
 
 ---
 
 ## Nomenclature
 
-The table below catalogs every mathematical symbol appearing in [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (`P01–P52`) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (`Pages 1–5`). In strict adherence to Scopus Q1 anti-hallucination standards and IEEE documentation guidelines, symbols whose physical units or boundary conditions are not explicitly defined in prose within the source manuscript are marked with `[Repository Gap — Author Clarification Required]` (equivalently `[Author Clarification Required — Not Specified in Repository]`).
+The table below catalogs every mathematical symbol appearing in [`Samuel-Navier Stocks Equation Solution.docx`](./Samuel-Navier%20Stocks%20Equation%20Solution.docx) (37 non-empty content paragraphs spanning `P01–P68` across 69 XML `<w:p>` elements, with 32 blank separator/trailing paragraphs) and [`Samuel-Navier Stocks Equation Solution.pdf`](./Samuel-Navier%20Stocks%20Equation%20Solution.pdf) (`Pages 1–6`). In strict adherence to Scopus Q1 anti-hallucination standards and IEEE documentation guidelines, symbols whose physical units or boundary conditions are not explicitly defined in prose within the source manuscript are marked with `[Repository Gap — Author Clarification Required]` (equivalently `[Author Clarification Required — Not Specified in Repository]`).
 
 | Symbol | Source Manuscript Notation | Mathematical Domain | Verified Role in Manuscript | Physical Units / Gap Status |
 | :---: | :--- | :---: | :--- | :--- |
@@ -87,16 +88,20 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 | $m^2$ | `m^2` | $\mathbb{R}^+$ | Square-meter area scaling parameter in Branch B | $m^2$ (Square meters) |
 | $\sigma$ | `σ` | $\mathbb{R}$ | Macroscopic stress / dissipation parameter coupled to radial integral | `[Repository Gap — Author Clarification Required]` |
 | $r$ | `r` | $[0, -\frac{1}{12}] \subset \mathbb{R}$ | Radial integration coordinate across regularized domain | `[Repository Gap — Author Clarification Required]` (Negative radial limit) |
-| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` (Solver uses test kernel ($f{(r)}$) = ($\exp{(-r^2)}$) for verification) |
+| $f(r)$ | `f(r)` | $C([0, -\frac{1}{12}])$ | Fourth-order radial vortex dissipation kernel | `[Repository Gap — Author Clarification Required]` (Solver uses test kernel $f(r) = \exp(-r^2)$ for verification) |
 | $s$ | `s` | $\mathbb{C}$ ($s = -1$) | Argument of the Riemann zeta function $\zeta(s)$ | Dimensionless |
 | $\zeta(s)$ | `ζ(s) = (-1/12)` | $\mathbb{Q} \subset \mathbb{R}$ | Regularization spectral upper cutoff fixed at $\zeta(-1) = -\frac{1}{12}$ | Dimensionless constant ($-\frac{1}{12} \approx -0.08333333333333333$) |
 | $\pi$ | `π` | $\mathbb{R}^+$ | Archimedes circle ratio isolated and reconstructed via $\sigma$ and $I_\zeta^{-1}$ | Dimensionless constant ($\approx 3.141592653589793$) |
-| $I_\zeta$ | `\int_0^{\zeta(s)=-1/12} r^4 f(r) dr` | $\mathbb{R}, I_\zeta \neq 0$ | Fourth-order radial dissipation moment $\int_{0}^{-1/12} r^4 f(r)\,dr$ | `[Repository Gap — Author Clarification Required]` |
-| $I_\zeta^{-1}$ | `(\int_0^{\zeta(s)=-1/12} r^4 f(r) dr)^-1` | $\mathbb{R}, I_\zeta^{-1} \neq 0$ | Multiplicative inverse of fourth-order radial moment functional | `[Repository Gap — Author Clarification Required]` |
+| $I_\zeta$ | `\int_0^{\zeta(s)=-1/12} r^4 f(r) dr` and `I_ζ` (`P66–P68`) | $\mathbb{R}, I_\zeta \neq 0$ | Fourth-order radial dissipation moment $\int_{0}^{-1/12} r^4 f(r)\,dr$ (shorthand $I_\zeta$ explicitly adopted by author in `P66–P68`) | `[Repository Gap — Author Clarification Required]` |
+| $I_\zeta^{-1}$ | `(\int_0^{\zeta(s)=-1/12} r^4 f(r) dr)^-1` and `I_ζ^(-1)` (`P66`) | $\mathbb{R}, I_\zeta^{-1} \neq 0$ | Multiplicative inverse of fourth-order radial moment functional | `[Repository Gap — Author Clarification Required]` |
 | $G_{\mu\nu}$ | `G_{μν}` | Symmetric $(0,2)$-tensor | Einstein tensor in relativistic field equation extension (`P46`, `P50`, `P52`) | `[Repository Gap — Author Clarification Required]` (Metric signature and units unstated) |
 | $G$ | `G` | $\mathbb{R}^+$ | Newtonian gravitational constant in Einstein tensor coupling (`P46`, `P50`, `P52`) | `[Repository Gap — Author Clarification Required]` |
 | $T_{\mu\nu}$ | `T_{μν}` | Symmetric $(0,2)$-tensor | Stress–energy–momentum tensor coupled to $G_{\mu\nu}$ (`P46`, `P50`, `P52`) | `[Repository Gap — Author Clarification Required]` (Fluid-to-stress-energy mapping unstated) |
 | $c$ | `(Implicit in P46)` | $\mathbb{R}^+$ | Speed of light in vacuum; $c = 1$ natural units implied vs. SI factor $c^{-4}$ in $8\pi G c^{-4} T_{\mu\nu}$ | `[Repository Gap — Author Clarification Required]` (Natural units vs. omitted $c^{-4}$ unstated) |
+| $\Delta x$ | `∆x` | $\mathbb{R}^+$ | Position uncertainty factor in Heisenberg inequality extension (`P56–P68`) | `[Repository Gap — Author Clarification Required]` (Quantum-fluid coupling and units unstated) |
+| $\Delta p$ | `∆p` | $\mathbb{R}^+$ | Momentum uncertainty factor in Heisenberg inequality extension (`P56–P68`) | `[Repository Gap — Author Clarification Required]` (Quantum-fluid coupling and units unstated) |
+| $\hbar$ | `ℏ` | $\mathbb{R}^+$ | Reduced Planck constant ($h / (2\pi)$) in baseline uncertainty bound (`P56`) | `[Repository Gap — Author Clarification Required]` (Physical scale link to Navier–Stokes unstated) |
+| $h$ | `h` | $\mathbb{R}^+$ | Planck constant expanded via $\hbar = h / (2 \times \pi)$ across `P58–P68` | `[Repository Gap — Author Clarification Required]` (Requires $(15 \times \sigma)^{-1} \times I_\zeta$ dimensionless) |
 | $\mathbf{u}, p, \nu$ | `u, p, nu` | Vector / Scalar | Velocity field, pressure field, kinematic viscosity of Navier–Stokes PDE | `[Repository Gap — Author Clarification Required]` (Continuum PDE coupling unstated) |
 
 ---
@@ -111,8 +116,9 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 > - **Batas Cutoff Spektral Zeta Riemann** $\zeta(s) = -1/12$: Agar integrasi energi pusaran fluida pada skala mikro $(r^4 f(r))$ tidak meledak menjadi tak terhingga (*divergen*), batas atas integral dikunci pada nilai perpanjangan analitik fungsi Zeta Riemann $\zeta(-1) = -\frac{1}{12}$.
 > - **Eliminasi Konstanta π Secara Eksak:** Dengan menggabungkan persamaan geometri dan persamaan integral disipasi $\sigma$, konstanta $\pi$ dieliminasi secara aljabar menggunakan operator kebalikan integral $I_\zeta^{-1} = \left(\int_{0}^{-1/12} r^4 f(r)\,dr\right)^{-1}$, menghasilkan galat numerik **nol mutlak (`0.0000000000000000e+00`)** pada Branch A di `solver.py`.
 > - **Ekstensi Tensor Einstein (`P46–P52`):** Ekspresi tertutup $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ disubstitusikan langsung ke persamaan medan Einstein $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46`) sehingga menyederhanakan koefisien $8 \times 4^{-1} \times 15 = 30$ menjadi $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P52`).
+> - **Ekstensi Prinsip Ketidakpastian Heisenberg (`P54–P68`, Halaman 5–6):** Ekspresi tertutup $\pi$ disubstitusikan pula ke pertidaksamaan ketidakpastian $(\Delta x \times \Delta p) \ge \frac{\hbar}{2} = \frac{h}{4\pi}$ sehingga faktor $4 \times 4^{-1} = 1$ saling meniadakan secara eksak dan menghasilkan $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$ (`P68`), sekaligus menjadi bagian pertama manuskrip yang mengadopsi notasi ringkas eksplisit $I_\zeta$ (`P66–P68`).
 
-The mathematical monograph authored by **Samuel Hasiholan Omega, S. Tr. T.** addresses a fundamental challenge at the intersection of computational fluid dynamics, discrete mathematics, and geometric regularization. When modeling continuous rotational fluid structures (such as vortex cores) inside discretized rectilinear numerical grids, a geometric incompatibility arises:
+The mathematical monograph authored by **Samuel Hasiholan Omega Purba, S. Tr. T.** addresses a fundamental challenge at the intersection of computational fluid dynamics, discrete mathematics, and geometric regularization. When modeling continuous rotational fluid structures (such as vortex cores) inside discretized rectilinear numerical grids, a geometric incompatibility arises:
 - **Rectilinear Computational Grids:** Cartesian control volumes and finite-difference/volume meshes operate on rectangular geometries with orthogonal corners ($C^0$ boundary regularity), governed by the normalized perimeter/area metric coefficient $4$.
 - **Curvilinear Physical Vortices:** Incompressible fluid streamlines and Rankine/Lamb–Oseen vortex cores possess axisymmetric circular geometries ($C^\infty$ boundary regularity), governed by the transcendental ratio $\pi \approx 3.14159265$.
 
@@ -173,11 +179,12 @@ ensuring that $I_\zeta$ remains finite, non-zero, and algebraically invertible.
 - **What Is Explicitly Solved in the Repository:**
   - Exact algebraic isolation of $\pi$ from both perimeter/pressure (Branch A) and area (Branch B) geometric boundary relations.
   - Closed-form symbolic elimination of $\pi$ by coupling geometric differentials to the fourth-order radial dissipation functional.
-  - Complete algebraic transformation across Steps 1 to 7 for Branch A (Paragraphs `P07–P29`) and Branch B (Paragraphs `P31–P45`), extended symbolically to the Einstein tensor field equation (Paragraphs `P46–P52`) using negative-exponent operator notation ($4^{-1}$, $I_\zeta^{-1}$).
-  - Full machine-precision numerical verification of Branch A via standard-library Python (`solver.py`), confirming zero residual error (`0.0000000000000000e+00`), paired with an optional 1080p simulation renderer (`generate_simulation.py`). Branch B and the Einstein Tensor Extension (`P46–P52`) are verified symbolically in Section II and are not yet implemented in `solver.py`.
+  - Complete algebraic transformation across Steps 1 to 7 for Branch A (Paragraphs `P07–P29`) and Branch B (Paragraphs `P31–P45`), extended symbolically to the Einstein tensor field equation (Paragraphs `P46–P52`) and the Heisenberg uncertainty principle inequality (Paragraphs `P54–P68`, adopting explicit $I_\zeta$ shorthand in `P66–P68`) using negative-exponent operator notation ($4^{-1}$, $I_\zeta^{-1}$, $(15 \times \sigma)^{-1}$).
+  - Full machine-precision numerical verification of Branch A via standard-library Python (`solver.py`), confirming zero residual error (`0.0000000000000000e+00`), paired with an optional 1080p simulation renderer (`generate_simulation.py`). Branch B, the Einstein Tensor Extension (`P46–P52`), and the Heisenberg Uncertainty Principle Extension (`P54–P68`) are verified symbolically in Section II and are not yet implemented in `solver.py`.
 - **Open Questions and Physical Boundaries (`[Repository Gap — Author Clarification Required]`):**
   - *Continuum Navier-Stokes Reduction:* The primary `.docx` and `.pdf` files contain pure mathematical equations without accompanying derivations establishing the formal reduction from the 3D incompressible Navier–Stokes momentum equations $\rho(\partial_t \mathbf{u} + \mathbf{u}\cdot\nabla\mathbf{u}) = -\nabla p + \mu \nabla^2\mathbf{u}$ on domain $\Omega \subset \mathbb{R}^3$ to the algebraic boundary relations.
   - *Einstein Tensor Coupling & Natural Units (`P46–P52`):* Paragraphs `P46–P52` substitute $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ directly into $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46`) to obtain $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P52`). Both the relativistic fluid-to-stress-energy PDE link connecting Navier–Stokes variables to $G_{\mu\nu}, T_{\mu\nu}$ and the unit convention (implied natural units $c = 1$ vs. omitted SI factor $c^{-4}$) are unstated in the manuscript.
+  - *Heisenberg Quantum-Fluid Coupling (`P54–P68`):* Paragraphs `P54–P68` substitute $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ into $(\Delta x \times \Delta p) \ge \frac{\hbar}{2} = \frac{h}{4\pi}$ to obtain $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$. Although algebraically exact under full-circle manuscript normalization ($\sigma_{\text{manuscript}} = \frac{4\pi}{15} I_\zeta < 0$), no physical derivation or dimensional mapping links macroscopic fluid quantities ($\mathbf{u}, p, \nu, \Delta P, \Delta L, \sigma, I_\zeta$) to canonical quantum observables ($\Delta x, \Delta p$) or Planck constants ($h, \hbar$).
   - *Radial Kernel Definition:* The kernel $f(r)$ multiplying $r^4$ is left symbolic in the manuscript. While `solver.py` utilizes a canonical Gaussian test distribution $f(r) = \exp(-r^2)$ to verify numerical closure, the physical form of $f(r)$ remains an author gap.
   - *Negative Integration Domain:* The physical justification for integrating a spatial radial coordinate $r$ from $0$ to the negative upper limit $-\frac{1}{12}$ requires author clarification regarding complex contour paths or dimensional scaling.
 
@@ -187,7 +194,7 @@ ensuring that $I_\zeta$ remains finite, non-zero, and algebraically invertible.
 
 ### A. Mathematical Integrity Audit: Grouping and Coefficient Conventions
 
-A rigorous inspection of the repository files, cross-checking the live `.docx` (Paragraphs `P01–P52`), `.pdf` (Pages 1–5), `solver.py`, and draft versions, reveals five critical mathematical and structural audit checkpoints across the three discrepancy domains:
+A rigorous inspection of the repository files, cross-checking the live `.docx` (37 non-empty content paragraphs spanning `P01–P68` across 69 XML `<w:p>` elements, with 32 blank separator/trailing paragraphs), `.pdf` (`Pages 1–6`), `solver.py`, and draft versions, reveals six critical mathematical and structural audit checkpoints across the four manuscript domains:
 
 #### 1. Grouping Audit in Step 3: 4 - ΔP/a vs. (4 - ΔP)/a (Discrepancy 1a)
 - Starting from the physical boundary differential relation:
@@ -245,8 +252,8 @@ $$
 (equivalently $\sigma_{\text{manuscript}} = 4 \times \sigma_{\text{quad}}$). Note for repository transparency that the optional visualization renderer `generate_simulation.py` (lines 130 and 808) contains the inverted reciprocal label (`sigma_ms = sigma_quad / 4.0` and `σ_quad = 4 × σ_ms`), whereas the verified numerical closure in `solver.py` strictly implements $\sigma_{\text{quad}} = \frac{\pi}{15} I_\zeta = 4^{-1} \times \sigma_{\text{manuscript}}$.
 
 #### 3. PDF/OCR Sanitization Audit Table & Ground-Truth Authority
-- Inspection of `Samuel-Navier Stocks Equation Solution.pdf` (`Pages 1–5`) reveals that the PDF stream utilizes Type0 CIDFonts (`CIDFont+F1` at xref 11 with `/ToUnicode 10 0 R` containing **35** mapped glyphs, and `CIDFont+F2` at xref 19 with `/ToUnicode 18 0 R` containing **38** mapped glyphs).
-- Consequently, Cambria Math characters lacking `/ToUnicode` CMap entries decode into garbled Telugu, Tamil, Kannada, Oriya, Malayalam, and Ethiopic codepoints across `Pages 1–5`, and OCR software misinterprets $\int_0$ as `f_0` and confuses $\sigma$, $\zeta$, and $\pi$ with $\theta$.
+- Inspection of `Samuel-Navier Stocks Equation Solution.pdf` (`Pages 1–6`) reveals that the PDF stream utilizes Type0 CIDFonts (`CIDFont+F1` at xref 11 with `/ToUnicode 10 0 R` containing **35** `bfchar` entries — **34** non-space glyphs plus `<0003>` space — and `CIDFont+F2` at xref 19 with `/ToUnicode 18 0 R` containing **44** `bfchar` entries — **43** non-space glyphs plus `<0003>` space, up from 38 in the prior five-page revision — excluding the `1 begincodespacerange <0000> <FFFF>` declaration).
+- Consequently, Cambria Math characters lacking `/ToUnicode` CMap entries decode into garbled Telugu, Tamil, Kannada, Oriya, Malayalam, and Ethiopic codepoints across `Pages 1–6`, and OCR software misinterprets $\int_0$ as `f_0` and confuses $\sigma$, $\zeta$, and $\pi$ with $\theta$.
 
 **PDF Sanitization Audit Table:**
 
@@ -257,9 +264,10 @@ $$
 | Perimeter symbol `P` (`P07–P29`) | `௉` / `ು` (unmapped Tamil/Kannada-block CIDs) | `P` (`P_(Square)`, `P_(Circle)`) | Discarded; restored from `.docx` OMML |
 | Upper integral limit $\zeta(s) = -1/12$ | `൬఍(௦) ୀ ቀ ିభ భమቁ൰` | $\zeta(s) = -\frac{1}{12}$ | Discarded; rendered as clean LaTeX limit |
 | Page 5 tensor subscripts (`P46`, `P50`, `P52`) | `𝐺ఓ` + unmapped `CID 0x0B9D` (`U+0B9D`, unassigned) and `𝑇ఓ` + unmapped `CID 0x0B9D` | $G_{\mu\nu}$, $T_{\mu\nu}$ | Discarded; $\mu\nu$ (`CID 0x0C13`, `0x0B9D`) restored from `.docx` OMML |
+| Page 5–6 Heisenberg symbols (`P54–P68`) | Mixed mapped `bfchar` CIDs (`∆, ℏ, ℎ, 𝐼, 𝑝, 𝑥, ≥, {, }`) alongside unmapped CIDs (digit `2`, subscript `ζ` in `I_ζ`) | $(\Delta x \times \Delta p) \ge \frac{\hbar}{2}$, $I_\zeta^{(-1)}$, `{2 × (2 × π)}` | Discarded PDF text layer; verified visually by page render and restored from `.docx` OMML |
 | Integral & Greek OCR drift | `f_0` (for $\int_0$); $\theta$ (for $\sigma, \zeta, \pi$) | $\int_{0}^{\zeta(s) = -\frac{1}{12}}$, $\sigma$, $\zeta$, $\pi$ | Discarded; verified against `.docx` OMML |
 
-- *Audit Rule:* The clean OMML XML structure within `Samuel-Navier Stocks Equation Solution.docx` (`word/document.xml`, Paragraphs `P01–P52`) is the singular authoritative ground truth. PDF text-extraction noise is completely sanitized and discarded.
+- *Audit Rule:* The clean OMML XML structure within `Samuel-Navier Stocks Equation Solution.docx` (`word/document.xml`, 69 `<w:p>` elements covering content Paragraphs `P01–P68`) is the singular authoritative ground truth. PDF text-extraction noise is completely sanitized and discarded.
 
 #### 4. Branch B Factor-of-4^(-1) & Factor-of-4 Audit (Discrepancy 2)
 - In Branch B Step 1 (Paragraph `P31`), the geometric area difference is formulated as:
@@ -294,10 +302,10 @@ $$
 $$
 
 - *Audit Assessment:* The author directly replaced the composite term $(\pi \times 4^{-1})$ from Step 1 with $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$. Because $(4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ algebraically evaluates to $\frac{m^2 - \Delta L}{m^2} \equiv \frac{\pi}{4}$, this direct substitution preserves exact numerical equality with $(1 - \frac{\pi}{4}) m^2$ **without** introducing $4^{-2}$, retaining $4^{-1}$ **once** in `P45`. Simultaneously, carrying `P35` without $4 \times$ induces a **factor-of-4 shift** in $\sigma$ between `P33` ($\sigma_{P33} = \frac{8\pi}{30} I_\zeta$) and `P37–P45` ($\sigma_{\text{eff}} = \frac{1}{4}\sigma_{P33} = \frac{\pi}{15} I_\zeta$).
-- *Standard Enforced:* Rather than artificially altering the author's text by inserting $4 \times$ into `P35–P41`, this documentation preserves the author's verbatim OMML equations while transparently auditing both the single-($4^{-1}$) closure and the factor-of-4 $\sigma$-scaling shift.
+- *Standard Enforced:* Rather than artificially altering the author's text by inserting $4 \times$ into `P35–P41`, this documentation preserves the author's verbatim OMML equations while transparently auditing both the single-$4^{-1}$ closure and the factor-of-4 $\sigma$-scaling shift.
 
 #### 5. Analytic, Tensor Arithmetic, and PDE Coupling Audit (P09–P52) (Discrepancy 3)
-- **Zeta Regularization & Symbolic Kernel (`P09–P52`):** The definite integral $I_\zeta = \int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr$ is bounded at the Ramanujan summation value $\zeta(-1) = -\frac{1}{12}$. The manuscript does not define a physical coordinate transformation explaining why radial distance $r = \sqrt{x^2+y^2} \ge 0$ is integrated along $[0, -\frac{1}{12}]$, nor does it define the functional form of $f(r)$ (`solver.py` uses the canonical Gaussian test kernel ($f{(r)}$) = ($\exp{(-r^2)}$)).
+- **Zeta Regularization & Symbolic Kernel (`P09–P52`):** The definite integral $I_\zeta = \int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr$ is bounded at the Ramanujan summation value $\zeta(-1) = -\frac{1}{12}$. The manuscript does not define a physical coordinate transformation explaining why radial distance $r = \sqrt{x^2+y^2} \ge 0$ is integrated along $[0, -\frac{1}{12}]$, nor does it define the functional form of $f(r)$ (`solver.py` uses the canonical Gaussian test kernel $f(r) = \exp(-r^2)$).
 - **Einstein Tensor Extension Arithmetic (`P46–P52`):** Substituting `P48` ($\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$) into `P46` ($G_{\mu\nu} = 8\pi G T_{\mu\nu}$) yields `P50`, whose scalar prefactor simplifies exactly by rational arithmetic:
 
 $$
@@ -309,17 +317,30 @@ confirming exact algebraic consistency for `P52` provided `P48` uses the Branch 
   1. **Omitted** $c^{-4}$ **vs. Natural Units** $c = 1$: Standard SI Einstein field equations take the form $G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$; writing $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ in `P46` implicitly assumes relativistic natural units $c = 1$ (or geometric units) without stating the unit system.
   2. *Unstated Navier–Stokes-to-Einstein PDE Coupling:* No continuum derivation in the `.docx` or `.pdf` connects the 3D incompressible Navier–Stokes momentum equation ($\rho(\partial_t \mathbf{u} + \mathbf{u}\cdot\nabla\mathbf{u}) = -\nabla p + \mu\nabla^2\mathbf{u}$) or boundary scalars ($\Delta P, \Delta L, \sigma, I_\zeta$) to the spacetime curvature tensor $G_{\mu\nu}$ and stress–energy tensor $T_{\mu\nu}$.
 
+#### 6. Heisenberg Uncertainty Principle Algebraic, Sign, and Normalization Audit (P54–P68) (Discrepancy 4)
+- **Exact Cancellation** ($4 \times 4^{-1} = 1$, `P62 -> P64`): Substituting `P54` ($\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$) into the expanded Planck denominator of `P60` ($(\Delta x \times \Delta p) \ge \frac{h}{4 \times \pi}$) places $4 \times (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ in the denominator (`P62`), where $4 \times 4^{-1} = 1$ cancels identically to leave $(15 \times \sigma) \times I_\zeta^{-1}$ in `P64`.
+- **First Manuscript Adoption of Explicit Shorthand** ($I_\zeta$, `P66–P68`): Whereas `P09–P64` write out the definite integral $\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ in full, Paragraph `P66` marks the manuscript's first explicit adoption of the shorthand symbol $I_\zeta$ (`I_ζ^(-1)`), and Paragraph `P68` raises the denominator factors via negative exponents to yield $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$.
+- **Sign and Magnitude Consistency under Full-Circle Normalization** ($\sigma_{\text{manuscript}}$ vs. $\sigma_{\text{quad}}$): From `P09`/`P33`, the manuscript's full-circle dissipation parameter is $\sigma_{\text{manuscript}} = \frac{8\pi}{30} I_\zeta = \frac{4\pi}{15} I_\zeta$. Because integrating a positive radial kernel $f(r) > 0$ (e.g., Gaussian $f(r) = \exp(-r^2)$, giving $I_\zeta \approx -7.99779 \times 10^{-7}$) from $0$ to $\zeta(-1) = -\frac{1}{12}$ yields $I_\zeta < 0$, it follows that $\sigma_{\text{manuscript}} < 0$ as well. Substituting $\sigma_{\text{manuscript}}$ into `P68` cancels both negative signs identically and recovers the exact canonical Heisenberg lower bound:
+
+$$
+(15 \times \sigma_{\text{manuscript}})^{-1} \times I_\zeta = I_\zeta \times \left[15 \times \left(\frac{4\pi}{15} I_\zeta\right)\right]^{-1} = \frac{I_\zeta}{4\pi I_\zeta} = \frac{1}{4\pi} > 0 \implies h \times (15 \times \sigma_{\text{manuscript}})^{-1} \times I_\zeta = \frac{h}{4\pi} = \frac{\hbar}{2} > 0
+$$
+
+  Conversely, substituting the single-quadrant solver value $\sigma_{\text{quad}} = 4^{-1} \times \sigma_{\text{manuscript}} = \frac{\pi}{15} I_\zeta$ from `solver.py` directly into `P68` produces $(15 \times \sigma_{\text{quad}})^{-1} \times I_\zeta = \frac{1}{\pi}$, inflating the right-hand side to $\frac{h}{\pi} = 2\hbar = 4 \times \frac{\hbar}{2}$ (an exact $4\times$ **magnitude inflation**). Consequently, `P54–P68` strictly requires full-circle manuscript normalization $\sigma_{\text{manuscript}} = 4 \times \sigma_{\text{quad}}$.
+- **Unstated Quantum-Fluid Physical Coupling (`[Repository Gap — Author Clarification Required]`):** No physical derivation or dimensional correspondence in `.docx` or `.pdf` connects macroscopic Navier–Stokes fluid quantities ($\mathbf{u}, p, \nu, \Delta P, \Delta L, \sigma, I_\zeta$) or relativistic tensors ($G_{\mu\nu}, T_{\mu\nu}$) to canonical quantum uncertainties ($\Delta x, \Delta p$) or Planck constants ($h, \hbar$), and dimensional consistency requires $(15 \times \sigma)^{-1} \times I_\zeta = \frac{1}{4\pi}$ to be dimensionless.
+
 ---
 
-### B. Tri-Domain Derivation Summary and Notation Guide
+### B. Quad-Domain Derivation Summary and Notation Guide
 
 > [!NOTE]
 > **Kamus Singkatan Notasi (*Quick Notation Guide for Rapid Reading*):**
 > - $\Delta P \equiv \Delta_{(P_{(Square)} - P_{(Circle)})}$ — Selisih batas keliling/tekanan persegi dikurangi lingkaran (Branch A, `P07–P29`).
 > - $\Delta L \equiv \Delta_{(L_{(Square)} - L_{(Circle)})}$ — Selisih luas bujur sangkar dikurangi lingkaran dalam satuan meter persegi (Branch B, `P31–P45`).
-> - $I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ — Momen disipasi radial orde ke-4 dengan batas spektral $\zeta(-1) = -\frac{1}{12}$.
+> - $I_\zeta \equiv \int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr$ — Momen disipasi radial orde ke-4 dengan batas spektral $\zeta(-1) = -\frac{1}{12}$ (notasi simbolik $I_\zeta$ mulai dipakai eksplisit oleh penulis pada `P66–P68`).
 > - $I_\zeta^{-1} \equiv \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}$ — Invers operator dari integral radial $I_\zeta$.
 > - $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ — Persamaan medan Einstein yang dikopelkan dengan $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ menjadi $30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P46–P52`).
+> - $(\Delta x \times \Delta p) \ge \frac{\hbar}{2} = \frac{h}{4\pi} \mapsto h \times (15 \times \sigma)^{-1} \times I_\zeta$ — Ekstensi prinsip ketidakpastian Heisenberg dengan pembatalan eksak $4 \times 4^{-1} = 1$ (`P54–P68`).
 
 | Langkah | Fokus Aljabar | Branch A: Keliling / Tekanan ($\Delta P$) | Branch B: Luas Permukaan ($\Delta L$) | Peran Transformasi Aljabar |
 | :---: | :--- | :--- | :--- | :--- |
@@ -330,7 +351,10 @@ confirming exact algebraic consistency for `P52` provided `P48` uses the Branch 
 | **Step 5** | Reduksi Koefisien Rasional | $\sigma = \left[\frac{4}{15} \times \left(\frac{4a - \Delta P}{a}\right)\right] \times I_\zeta$ | $\sigma = \left[\frac{4}{15} \times \left(\frac{m^2 - \Delta L}{m^2}\right)\right] \times I_\zeta$ | Menyederhanakan faktor pengali numerik $\frac{8}{30}$ menjadi $\frac{4}{15}$. |
 | **Step 6** | Isolasi Operator Invers | $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ | $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ | Mengisolasi $\pi$ secara murni via perkalian invers integral $I_\zeta^{-1}$. |
 | **Step 7** | Penutupan Diferensial Akhir | $\Delta P = \left[4 - (4^{-1} \times 15 \times \sigma \times I_\zeta^{-1})\right] \times a$ | $\Delta L = \left[1 - (4^{-1} \times 15 \times \sigma \times I_\zeta^{-1})\right] \times m^2$ | Substitusi akhir yang mengeliminasi konstanta $\pi$ secara sempurna. |
-| **Ext. (P46–P52)** | Ekstensi Tensor Einstein | $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46`) | $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P52`) | Mensubstitusikan $\pi$ Langkah 6 (`P48`) ke tensor Einstein (`8 * 4^-1 * 15 = 30`). |
+| **Ext. 1 (P46–P52)** | Ekstensi Tensor Einstein | **Baseline:** $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ (`P46`) | **Closed-Form:** $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$ (`P52`) | Mensubstitusikan $\pi$ Langkah 6 (`P48`) ke tensor Einstein (`8 * 4^-1 * 15 = 30`). |
+| **Ext. 2 (P54–P68)** | Ekstensi Heisenberg | **Baseline:** $(\Delta x \times \Delta p) \ge \frac{h}{4\pi}$ (`P60`) | **Closed-Form:** $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$ (`P68`) | Substitusi $\pi$ (`P54`), pembatalan $4 \times 4^{-1} = 1$ (`P64`), dan adopsi $I_\zeta$ (`P66–P68`). |
+
+> **Catatan Tabel:** Untuk baris **Step 1–Step 7**, kolom 3–4 membandingkan Branch A ($\Delta P$) dan Branch B ($\Delta L$). Untuk baris ekstensi **Ext. 1** dan **Ext. 2**, kolom 3–4 masing-masing menampilkan **Baseline** dan **Closed-Form** (bukan Branch A/B).
 
 ```mermaid
 flowchart TD
@@ -338,11 +362,13 @@ flowchart TD
     S2["Step 2: Fourth-Order Radial Integral Coupling with sigma and zeta(s)"] --> S4["Step 4: Direct Symbolic Substitution into Dissipation Relation"]
     S3 --> S4
     S4 --> S5["Step 5: Rational Coefficient Simplification (8/30 to 4/15)"]
-    S5 --> S6["Step 6: Operator Inversion and Closed-Form pi (P25, P43, P48)"]
+    S5 --> S6["Step 6: Operator Inversion and Closed-Form pi (P25, P43, P48, P54)"]
     S6 --> S7["Step 7: Final Master Differential Closure (P29 Delta P, P45 Delta L)"]
     S1 --> S7
     S6 --> E1["P46 to P50: Substitute pi into Einstein Field Eq G_uv = 8 pi G T_uv"]
     E1 --> E2["P52: Simplify 8 * 4^-1 * 15 = 30 to G_uv = 30 * sigma * inv(I_zeta) G T_uv"]
+    S6 --> H1["P54 to P60: Expand hbar/2 = h/(4 pi) and Substitute pi"]
+    H1 --> H2["P62 to P68: Cancel 4 * 4^-1 = 1 and Adopt I_zeta to h * inv(15 * sigma) * I_zeta"]
 ```
 
 ---
@@ -545,14 +571,95 @@ $$
 
 ---
 
-### F. Archival Manuscript Equations from DOCX and PDF (P01–P52)
+### F. Heisenberg Uncertainty Principle Extension (P54–P68)
 
-For complete archival traceability, the exact verbatim formulas extracted from `Samuel-Navier Stocks Equation Solution.docx` (Paragraphs `P01–P52`, with blank separator paragraphs omitted) are indexed below using clean structural integral notation (`∫_0^(ζ(s)=-1/12) r^4 f(r) dr`):
+Symbolic extension of the closed-form inverse-operator expression for $\pi$ into the Heisenberg uncertainty principle across Paragraphs `P54–P68` of `Samuel-Navier Stocks Equation Solution.docx` (rendered on Page 5 bottom and Page 6 of the `.pdf`). Per `AGENTS.md` rendering hygiene, the outer OMML curly braces in `P58` (`{2 × (2 × π)}`) are typeset with square brackets `\left[...\right]`, and denominator integral limits in `P62` and `P64` use clean inline `-1/12` notation to prevent microscopic 3-story stacked fractions.
+
+#### Step H1 — Closed-Form Inverse-Operator Expression for π (P54)
+- **Penjelasan Mudah:** Mengambil kembali identitas tertutup $\pi$ dari Langkah 6 (`P25`/`P43`/`P48`) sebagai perkalian $(4^{-1} \times 15 \times \sigma)$ dengan invers momen disipasi radial $I_\zeta^{-1}$.
+- **Bentuk Ringkas:** $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+\pi = (4^{-1} \times 15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}
+$$
+
+#### Step H2 — Canonical Heisenberg Uncertainty Principle Baseline (P56)
+- **Penjelasan Mudah:** Menetapkan pertidaksamaan dasar ketidakpastian Heisenberg bahwa hasil kali ketidakpastian posisi $\Delta x$ dan momentum $\Delta p$ minimal sebesar setengah konstanta Planck tereduksi $\frac{\hbar}{2}$ (tautan fisika fluida-kuantum ditandai `[Repository Gap — Author Clarification Required]`).
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{\hbar}{2}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{\hbar}{2}
+$$
+
+#### Step H3 — Expansion of Reduced Planck Constant ℏ = h / (2π) (P58)
+- **Penjelasan Mudah:** Menguraikan konstanta Planck tereduksi $\hbar = \frac{h}{2\pi}$ sehingga penyebut terstruktur menjadi $2 \times (2 \times \pi)$.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{h}{2 \times (2 \times \pi)}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{h}{\left[2 \times (2 \times \pi)\right]}
+$$
+
+#### Step H4 — Denominator Coefficient Simplification to 4π (P60)
+- **Penjelasan Mudah:** Mengalikan faktor $2 \times 2 = 4$ pada penyebut sehingga pertidaksamaan berbentuk $\frac{h}{4 \times \pi}$.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{h}{4 \times \pi}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{h}{4 \times \pi}
+$$
+
+#### Step H5 — Substitution of Closed-Form π into Uncertainty Bound (P62)
+- **Penjelasan Mudah:** Mensubstitusikan ekspresi tertutup $\pi$ dari `P54` ke penyebut $4 \times \pi$ pada `P60`, menghasilkan faktor berdampingan $4 \times 4^{-1}$ di dalam penyebut.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{h}{4 \times (4^{-1} \times 15 \times \sigma \times I_\zeta^{-1})}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{h}{\left(4 \times \left((4^{-1} \times 15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr\right)^{-1}\right)\right)}
+$$
+
+#### Step H6 — Exact Cancellation 4 × 4^(-1) = 1 (P64)
+- **Penjelasan Mudah:** Menghilangkan faktor $4 \times 4^{-1} = 1$ secara eksak pada penyebut sehingga tersisa hasil kali $(15 \times \sigma)$ dengan invers operator integral.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{h}{(15 \times \sigma) \times I_\zeta^{-1}}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{h}{\left((15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr\right)^{-1}\right)}
+$$
+
+#### Step H7 — First Manuscript Adoption of Explicit Shorthand Iζ (P66)
+- **Penjelasan Mudah:** Mengganti penulisan integral panjang $\int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr$ dengan simbol ringkas resmi $I_\zeta$ (`I_ζ^(-1)`) untuk pertama kalinya di dalam manuskrip.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge \frac{h}{(15 \times \sigma) \times I_\zeta^{-1}}$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \frac{h}{\left((15 \times \sigma) \times I_\zeta^{-1}\right)}
+$$
+
+#### Step H8 — Negative-Exponent Inversion to Final Bound (P68)
+- **Penjelasan Mudah:** Memindahkan faktor penyebut $(15 \times \sigma)$ dan $I_\zeta^{-1}$ ke pembilang melalui inversi pangkat negatif sehingga diperoleh pertidaksamaan penutup bebas-$\pi$.
+- **Bentuk Ringkas:** $\Delta x \times \Delta p \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$
+- **Bentuk Lengkap Manuskrip:**
+
+$$
+(\Delta x \times \Delta p) \ge \left(h \times (15 \times \sigma)^{-1} \times I_\zeta\right)
+$$
+
+> [!NOTE]
+> **Normalization & Physical Gap Summary (`P54–P68`):** Under full-circle manuscript normalization ($\sigma_{\text{manuscript}} = \frac{4\pi}{15} I_\zeta < 0$ for positive kernels since $I_\zeta < 0$), both negative signs cancel identically: $(15 \times \sigma_{\text{manuscript}})^{-1} \times I_\zeta = \frac{1}{4\pi} > 0$, preserving exact equality with $\frac{h}{4\pi} = \frac{\hbar}{2} > 0$. Substituting quadrant-normalized $\sigma_{\text{quad}} = 4^{-1} \sigma_{\text{manuscript}}$ instead yields $\frac{h}{\pi} = 2\hbar$ (a $4\times$ inflation). The physical bridge linking Navier–Stokes variables to $(\Delta x, \Delta p, h, \hbar)$ remains `[Repository Gap — Author Clarification Required]`.
+
+---
+
+### G. Archival Manuscript Equations from DOCX and PDF (P01–P68)
+
+For complete archival traceability, the exact verbatim formulas extracted from `Samuel-Navier Stocks Equation Solution.docx` (37 non-empty content paragraphs spanning `P01–P68` across 69 XML `<w:p>` elements, with 32 blank separator/trailing paragraphs omitted) are indexed below using clean structural integral notation (`∫_0^(ζ(s)=-1/12) r^4 f(r) dr`):
 
 | Paragraph | Target Branch | Algebraic Operation / Equation Description | Verbatim Manuscript OMML Notation |
 | :---: | :---: | :--- | :--- |
 | **P01** | Header | Monograph Canonical Title | `Samuel – Navier Stocks Equation Solution` |
-| **P02** | Header | Author Identification | `by : Samuel Hasiholan Omega, S. Tr. T.` |
+| **P02** | Header | Author Identification | `by : Samuel Hasiholan Omega Purba, S. Tr. T.` |
 | **P03** | Header | Departmental Affiliation | `Teknik Elektro` |
 | **P04** | Header | Study Program Affiliation | `Prodi Teknik Robotika dan Kecerdasan buatan` |
 | **P05** | Header | Institutional Affiliation | `Politeknik Negeri Batam` |
@@ -580,6 +687,14 @@ For complete archival traceability, the exact verbatim formulas extracted from `
 | **P48** | Einstein Ext. | Step E2: Closed-Form $\pi$ Restatement | `π = (4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1` |
 | **P50** | Einstein Ext. | Step E3: Direct Substitution into Field Equation | `G_{μν} = (8 × ((4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1) G T_{μν})` |
 | **P52** | Einstein Ext. | Step E4: Reduced Tensor Coupling Closure | `G_{μν} = (((30 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1) G T_{μν})` |
+| **P54** | Heisenberg Ext. | Step H1: Closed-Form $\pi$ Restatement | `π = ((4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1)` |
+| **P56** | Heisenberg Ext. | Step H2: Heisenberg Uncertainty Baseline | `(∆x × ∆p) ≥ (ℏ / 2)` |
+| **P58** | Heisenberg Ext. | Step H3: Reduced Planck Expansion ($\hbar = h/(2\pi)$) | `(∆x × ∆p) ≥ (h / {2 × (2 × π)})` |
+| **P60** | Heisenberg Ext. | Step H4: Denominator Reduction to $4\pi$ | `(∆x × ∆p) ≥ (h / (4 × π))` |
+| **P62** | Heisenberg Ext. | Step H5: Substitution of Closed-Form $\pi$ | `(∆x × ∆p) ≥ (h / (4 × ((4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1)))` |
+| **P64** | Heisenberg Ext. | Step H6: Exact $4 \times 4^{-1} = 1$ Cancellation | `(∆x × ∆p) ≥ (h / ((15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1))` |
+| **P66** | Heisenberg Ext. | Step H7: First Adoption of Explicit $I_\zeta$ Shorthand | `(∆x × ∆p) ≥ (h / ((15 × σ) × I_ζ^(-1)))` |
+| **P68** | Heisenberg Ext. | Step H8: Negative-Exponent Inversion Closure | `(∆x × ∆p) ≥ (h × (15 × σ)^(-1) × I_ζ)` |
 
 ---
 
@@ -590,8 +705,8 @@ This section formalizes three interactive command protocols (`/Team-Viewer`, `/l
 ```mermaid
 flowchart LR
     subgraph Repo["Samuel-Navier-Stokes Repository"]
-        M1["Manuscript (.docx P01-P52 and .pdf Pages 1-5)"]
-        M2["Tri-Domain Derivations (Branch A, Branch B, Einstein Ext.)"]
+        M1["Manuscript (.docx P01-P68 and .pdf Pages 1-6)"]
+        M2["Quad-Domain Derivations (Branch A, Branch B, Einstein Ext., Heisenberg Ext.)"]
         M3["Verification Solver (solver.py)"]
         M1 --> M2
         M2 --> M3
@@ -612,34 +727,38 @@ flowchart LR
 
 | Command Directive | Primary Objective | Formal Syntax & Arguments | Input / Output Contract | Execution Logic & Operational Stages |
 | :--- | :--- | :--- | :--- | :--- |
-| **`/Team-Viewer`** | Multi-researcher collaborative walkthrough and synchronized inspection of equations, parameters, and telemetry across workspace files. | `/Team-Viewer --target=<docx / pdf / solver / all> --step=<1..7 / E1..E4 / P07..P52 / all> --branch=<A / B / E / all> --verify=<true / false> --audit=<true / false>` | **In:** target file, step selector, branch (`A`, `B`, `E` Einstein Extension, or `all`), verify flag, audit flag (`--audit=<true / false>`, default: `false`).<br>**Out:** Synchronized comparative review table showing OMML formulas (`P07–P52`), solver telemetry, and gap audit status. | 1. Parse target artifact, step selector, and flags (`--verify`, `--audit`).<br>2. Extract OMML XML (`P01–P52`) from `.docx` and sanitize `.pdf` streams (`Pages 1–5`).<br>3. If `--verify=true`, execute `python solver.py --json --verify` (Branch A closure).<br>4. Generate tabular audit report comparing manuscript equations against solver state; if `--audit=true`, display Branch B factor-of-4 and `P46–P52` unit/coupling gap flags. |
-| **`/learn`** | Progressive pedagogical step-by-step master tutor guiding researchers through Steps 1–7 of Branches A & B and Steps E1–E4 (`P46–P52`), validating prerequisites and testing comprehension. | `/learn --branch=<A / B / E> --step=<1..7 / E1..E4> --check-prereqs=<true / false> --lang=<en / id>` | **In:** target branch (`A`, `B`, or `E`), step number (`1–7` or `E1–E4`), prerequisite check flag, language.<br>**Out:** Structured pedagogical card with Prerequisite Gate, Verbatim Formula, Nomenclature Mapping, and Comprehension Check. | 1. Audit mathematical prerequisites (quadrature, $\zeta(-1) = -1/12$, operator inversion, tensor notation for `E`).<br>2. Render dual-layer explanation (Penjelasan Mudah + display math).<br>3. Cross-reference symbol definitions against Nomenclature.<br>4. Prompt comprehension question before unlocking subsequent step. |
-| **`/humanize`** | Clarity synthesizer translating dense symbolic derivations and IEEE prose into intuitive physical, robotic, and geometric analogies without altering mathematical exactness. | `/humanize --branch=<A / B / E> --equation=<1..7 / E1..E4 / P07..P52 / all> --domain=<fluid-dynamics / robotics / signal-processing>` | **In:** branch (`A`, `B`, or `E`), equation index (`P07..P52`), target engineering analogy domain.<br>**Out:** Verbatim LaTeX display formula accompanied by domain-specific intuitive explanation and explicit gap markers. | 1. Retrieve verbatim LaTeX equation (`P07–P52`).<br>2. Map symbolic variables to domain concepts (Cartesian grid corners, low-pass filter, mobile robot trajectory, or geometric coupling).<br>3. Generate intuitive narrative while preserving 100% mathematical precision and flagging unstated PDE/unit links. |
+| **`/Team-Viewer`** | Multi-researcher collaborative walkthrough and synchronized inspection of equations, parameters, and telemetry across workspace files. | `/Team-Viewer --target=<docx / pdf / solver / all> --step=<1..7 / E1..E4 / H1..H8 / P07..P68 / all> --branch=<A / B / E / H / all> --verify=<true / false> --audit=<true / false>` | **In:** target file, step selector, branch (`A`, `B`, `E` Einstein Extension, `H` Heisenberg Extension, or `all`), verify flag, audit flag (`--audit=<true / false>`, default: `false`).<br>**Out:** Synchronized comparative review table showing OMML formulas (`P07–P68`), solver telemetry, and gap audit status. | 1. Parse target artifact, step selector, and flags (`--verify`, `--audit`).<br>2. Extract OMML XML (`P01–P68`) from `.docx` and sanitize `.pdf` streams (`Pages 1–6`).<br>3. If `--verify=true`, execute `python solver.py --json --verify` (Branch A closure).<br>4. Generate tabular audit report comparing manuscript equations against solver state; if `--audit=true`, display Branch B factor-of-4, `P46–P52` unit/coupling, and `P54–P68` $4\times$/quantum-fluid gap flags. |
+| **`/learn`** | Progressive pedagogical step-by-step master tutor guiding researchers through Steps 1–7 of Branches A & B, Steps E1–E4 (`P46–P52`), and Steps H1–H8 (`P54–P68`), validating prerequisites and testing comprehension. | `/learn --branch=<A / B / E / H> --step=<1..7 / E1..E4 / H1..H8> --check-prereqs=<true / false> --lang=<en / id>` | **In:** target branch (`A`, `B`, `E`, or `H`), step number (`1–7`, `E1–E4`, or `H1–H8`), prerequisite check flag, language.<br>**Out:** Structured pedagogical card with Prerequisite Gate, Verbatim Formula, Nomenclature Mapping, and Comprehension Check. | 1. Audit mathematical prerequisites (quadrature, $\zeta(-1) = -1/12$, operator inversion, tensor notation for `E`, Heisenberg $\hbar = h/(2\pi)$ and negative-exponent inversion for `H`).<br>2. Render dual-layer explanation (Penjelasan Mudah + display math).<br>3. Cross-reference symbol definitions against Nomenclature.<br>4. Prompt comprehension question before unlocking subsequent step. |
+| **`/humanize`** | Clarity synthesizer translating dense symbolic derivations and IEEE prose into intuitive physical, robotic, and geometric analogies without altering mathematical exactness. | `/humanize --branch=<A / B / E / H> --equation=<1..7 / E1..E4 / H1..H8 / P07..P68 / all> --domain=<fluid-dynamics / robotics / signal-processing>` | **In:** branch (`A`, `B`, `E`, or `H`), equation index (`P07..P68`), target engineering analogy domain.<br>**Out:** Verbatim LaTeX display formula accompanied by domain-specific intuitive explanation and explicit gap markers. | 1. Retrieve verbatim LaTeX equation (`P07–P68`).<br>2. Map symbolic variables to domain concepts (Cartesian grid corners, low-pass filter, mobile robot trajectory, tensor coupling, or uncertainty tradeoff).<br>3. Generate intuitive narrative while preserving 100% mathematical precision and flagging unstated PDE/quantum/unit links. |
 
 ### B. Command Syntax, Execution Logic, and Worked Examples
 
 #### 1. `/Team-Viewer` — Collaborative Review and Live Inspection
-- **Formal Syntax:** `/Team-Viewer --target=all --branch=all --step=P11..P52 --verify=true --audit=true`
+- **Formal Syntax:** `/Team-Viewer --target=all --branch=all --step=P11..P68 --verify=true --audit=true`
 - **Execution Logic:**
-  1. Parse target scope (`.docx`, `.pdf`, `solver.py`), step selector (`P11..P52`), and flags (`--verify=true`, `--audit=true`).
-  2. Extract Paragraphs `P11` to `P52` from `Samuel-Navier Stocks Equation Solution.docx`.
+  1. Parse target scope (`.docx`, `.pdf`, `solver.py`), step selector (`P11..P68`), and flags (`--verify=true`, `--audit=true`).
+  2. Extract Paragraphs `P11` to `P68` from `Samuel-Navier Stocks Equation Solution.docx`.
   3. Execute `python solver.py --json --verify` and capture runtime telemetry for Branch A.
-  4. Format synchronized audit table with paragraph identifiers, OMML strings, verification status, and audit checkpoints (flagging audited manuscript conventions such as `P35` and `P46–P52` natural-unit/PDE coupling gaps when `--audit=true`).
+  4. Format synchronized audit table with paragraph identifiers, OMML strings, verification status, and audit checkpoints (flagging audited manuscript conventions such as `P35`, `P46–P52` natural-unit/PDE coupling gaps, and `P54–P68` full-circle $\sigma_{\text{manuscript}}$ normalization and quantum-fluid coupling gaps when `--audit=true`).
 - **Worked Example Output:**
   ```text
-  [TEAM-VIEWER SYNC REPORT — TRI-DOMAIN INSPECTION (P11..P52)]
+  [TEAM-VIEWER SYNC REPORT — QUAD-DOMAIN INSPECTION (P11..P68)]
   ----------------------------------------------------------------------------------------------------
-  Paragraph | Branch        | Source OMML Expression (.docx)              | Operation          | Status
+  Paragraph | Branch          | Source OMML Expression (.docx)              | Operation           | Status
   ----------------------------------------------------------------------------------------------------
-  P11       | Branch A      | pi = ((4*a) - Delta_P) / a                  | Isolation of pi    | VERIFIED
-  P13       | Branch A      | sigma = (8/30) * (((4*a) - Delta_P)/a) * Iz | Direct Sub         | VERIFIED
-  P15       | Branch A      | sigma = (4/15) * (((4*a) - Delta_P)/a) * Iz | Rational Reduction | VERIFIED
-  P31       | Branch B      | Delta_L = (1 - (pi * 4^-1)) * m^2           | Area Differential  | SYMBOLIC
-  P35       | Branch B      | pi = (m^2 - Delta_L) / m^2                  | Area Ratio Form    | AUDITED (4x)
-  P45       | Branch B      | Delta_L = (1 - ((4^-1*15*sigma)*Iz^-1))*m^2 | Master Closure     | SYMBOLIC
-  P46       | Einstein Ext. | G_uv = 8 * pi * G * T_uv                    | Field Eq Baseline  | AUDITED (c=1 GAP)
-  P50       | Einstein Ext. | G_uv = 8 * ((4^-1*15*sigma)*Iz^-1) G T_uv   | Sub of pi (P48)    | SYMBOLIC
-  P52       | Einstein Ext. | G_uv = ((30 * sigma) * Iz^-1) G T_uv        | Rational Reduction | AUDITED (PDE GAP)
+  P11       | Branch A        | pi = ((4*a) - Delta_P) / a                  | Isolation of pi     | VERIFIED
+  P13       | Branch A        | sigma = (8/30) * (((4*a) - Delta_P)/a) * Iz | Direct Sub          | VERIFIED
+  P15       | Branch A        | sigma = (4/15) * (((4*a) - Delta_P)/a) * Iz | Rational Reduction  | VERIFIED
+  P31       | Branch B        | Delta_L = (1 - (pi * 4^-1)) * m^2           | Area Differential   | SYMBOLIC
+  P35       | Branch B        | pi = (m^2 - Delta_L) / m^2                  | Area Ratio Form     | AUDITED (4x)
+  P45       | Branch B        | Delta_L = (1 - ((4^-1*15*sigma)*Iz^-1))*m^2 | Master Closure      | SYMBOLIC
+  P46       | Einstein Ext.   | G_uv = 8 * pi * G * T_uv                    | Field Eq Baseline   | AUDITED (c=1 GAP)
+  P50       | Einstein Ext.   | G_uv = 8 * ((4^-1*15*sigma)*Iz^-1) G T_uv   | Sub of pi (P48)     | SYMBOLIC
+  P52       | Einstein Ext.   | G_uv = ((30 * sigma) * Iz^-1) G T_uv        | Rational Reduction  | AUDITED (PDE GAP)
+  P56       | Heisenberg Ext. | (dx * dp) >= hbar / 2                       | Uncertainty Base    | AUDITED (QF GAP)
+  P64       | Heisenberg Ext. | (dx * dp) >= h / ((15 * sigma) * Iz^-1)     | Cancel 4 * 4^-1 = 1 | SYMBOLIC
+  P66       | Heisenberg Ext. | (dx * dp) >= h / ((15 * sigma) * I_zeta^-1) | Explicit I_zeta     | SYMBOLIC
+  P68       | Heisenberg Ext. | (dx * dp) >= h * (15 * sigma)^-1 * I_zeta   | Neg-Exp Closure     | AUDITED (4x/GAP)
   ----------------------------------------------------------------------------------------------------
   Telemetry (Branch A): absolute_residual_error = +0.0000000000000000e+00 | AUDIT STATUS: PASS
   ```
@@ -659,14 +778,14 @@ flowchart LR
   > - **Pertanyaan Pemahaman:** Mengapa pemilihan batas atas integral bernilai konstan $-\frac{1}{12}$ bertindak sebagai regularisasi spektral yang mencegah ledakan integral pada skala mikro?
 
 #### 3. `/humanize` — Engineering and Physical Intuition Translation
-- **Formal Syntax:** `/humanize --branch=<A / B / E> --equation=<1..7 / E1..E4 / P07..P52 / all> --domain=<fluid-dynamics / robotics / signal-processing>`
+- **Formal Syntax:** `/humanize --branch=<A / B / E / H> --equation=<1..7 / E1..E4 / H1..H8 / P07..P68 / all> --domain=<fluid-dynamics / robotics / signal-processing>`
 - **Execution Logic:**
-  1. Retrieve verbatim display math for the requested derivation step across Branch A (`P07–P29`), Branch B (`P31–P45`), or Einstein Tensor Extension (`P46–P52`).
-  2. Map symbolic parameters ($\Delta P, \Delta L, 4, \pi, a, m^2, \sigma, I_\zeta^{-1}, G_{\mu\nu}, G, T_{\mu\nu}$) to the target domain's physical concepts while preserving `[Repository Gap — Author Clarification Required]` boundaries.
+  1. Retrieve verbatim display math for the requested derivation step across Branch A (`P07–P29`), Branch B (`P31–P45`), Einstein Tensor Extension (`P46–P52`), or Heisenberg Uncertainty Principle Extension (`P54–P68`).
+  2. Map symbolic parameters ($\Delta P, \Delta L, 4, \pi, a, m^2, \sigma, I_\zeta, I_\zeta^{-1}, G_{\mu\nu}, G, T_{\mu\nu}, \Delta x, \Delta p, h, \hbar$) to the target domain's physical concepts while preserving `[Repository Gap — Author Clarification Required]` boundaries.
   3. Synthesize domain-specific intuitive narratives and conceptual parameter mapping tables preserving 100% mathematical precision across all three supported engineering domains (`robotics`, `fluid-dynamics`, `signal-processing`).
 - **Worked Example Master Reference Equation:**
 
-The canonical closed-form closure evaluated across all three domain translations below is Branch A Step 7 (Paragraph `P29`), which also shares the inverse-operator core $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ substituted into `P50–P52` ($G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$):
+The canonical closed-form closure evaluated across all three domain translations below is Branch A Step 7 (Paragraph `P29`), which also shares the inverse-operator core $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ substituted into `P50–P52` ($G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$) and `P62–P68` ($(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$):
 
 $$
 \Delta_{(P_{(Square)} - P_{(Circle)})} = \left(4 - \left((4^{-1} \times 15 \times \sigma) \times \left(\int_{0}^{\zeta(s) = -\frac{1}{12}} r^4 f(r)\,dr\right)^{-1}\right)\right) \times a
@@ -729,20 +848,27 @@ The local repository structure consists of the following verified files:
 Samuel-Navier Stocks Equation Solution/
 ├── AGENTS.md                                       # IEEE / Scopus Q1 documentation & verification rules
 ├── README.md                                       # IEEE / Scopus Q1 publication documentation (this file)
-├── Samuel-Navier Stocks Equation Solution.docx     # Primary Word manuscript (52 paragraphs, OMML math)
-├── Samuel-Navier Stocks Equation Solution.pdf      # Primary rendered PDF manuscript (Pages 1–5)
+├── Samuel-Navier Stocks Equation Solution.docx     # Primary Word manuscript (37 non-empty / 69 XML paragraphs, P01–P68, OMML)
+├── Samuel-Navier Stocks Equation Solution.pdf      # Primary rendered PDF manuscript (Pages 1–6)
 ├── Samuel-Navier_Stokes_Simulation.mp4             # Rendered 1080p @ 30fps (36.0s) H.264 simulation video
 ├── avatar_profile.png                              # Author portrait image (288x288 RGBA PNG)
 ├── generate_simulation.py                          # Optional Pillow + ffmpeg 1080p MP4 simulation renderer
+├── requirements_purba_ai.txt                       # Optional dependency manifest for Purba.AI desktop suite
 ├── solver.py                                       # Zero-dependency Python 3 numerical verification module
-└── test_solver.py                                  # Automated 10-test unittest verification suite
+├── test_solver.py                                  # Automated 10-test stdlib unittest verification suite
+├── purba_ai/                                       # Desktop AI companion & math core modules
+│   ├── __init__.py
+│   ├── domain/                                     # Domain models, nomenclature & persona definitions
+│   └── math_core/                                  # Branch solvers, DOCX ingestor, quadrature & symbolic audit
+├── tests_purba_ai/                                 # Unit tests for purba_ai.math_core
+└── tests_e2e/                                      # End-to-end verification suite for Purba.AI & AST boundaries
 ```
 
 ### B. Software and Environment Requirements
 
 - **Operating System:** Cross-platform (Windows, Linux, macOS; `generate_simulation.py` resolves Windows system fonts in `C:\Windows\Fonts` with `ImageFont.load_default()` fallback).
 - **Python Runtime:** Python `3.8+` (tested and certified on Python `3.9.13` and `3.11+`).
-- **Core Verification Dependencies (`solver.py`, `test_solver.py`):** **Zero (`0`)** third-party library dependencies; uses exclusively the Python Standard Library (`argparse`, `contextlib`, `io`, `json`, `math`, `re`, `subprocess`, `sys`, `typing`, `unittest`). Note that `solver.py` currently verifies Branch A ($\Delta P$) closure numerically; Branch B ($\Delta L$) and the Einstein Tensor Extension (`P46–P52`) are audited symbolically in Section II and are not yet implemented in `solver.py`.
+- **Core Verification Dependencies (`solver.py`, `test_solver.py`):** **Zero (`0`)** third-party library dependencies; uses exclusively the Python Standard Library (`argparse`, `contextlib`, `io`, `json`, `math`, `re`, `subprocess`, `sys`, `typing`, `unittest`). Note that `solver.py` currently verifies Branch A ($\Delta P$) closure numerically; Branch B ($\Delta L$), the Einstein Tensor Extension (`P46–P52`), and the Heisenberg Uncertainty Principle Extension (`P54–P68`) are audited symbolically in Section II and are not yet implemented in `solver.py`.
 - **Optional Visualization Dependencies (`generate_simulation.py`):** Requires `Pillow` (`PIL`) and `ffmpeg` on `PATH` (libx264 encoder) to render `Samuel-Navier_Stokes_Simulation.mp4` (`1920x1080` at `30 fps`, `36.0 s`, supporting `--output` / `-o` and `--preview-dir`). `solver.py` and `test_solver.py` never depend on `generate_simulation.py`, `Pillow`, or `ffmpeg`.
 
 ### C. Reference Python Verification Module
@@ -759,7 +885,7 @@ The embedded Python code below is bitwise identical to [`solver.py`](./solver.py
 ```python
 """
 Samuel-Navier-Stokes Equation Solution — Reference Numerical Verification Solver
-Author      : Samuel Hasiholan Omega, S. Tr. T.
+Author      : Samuel Hasiholan Omega Purba, S. Tr. T.
 Department  : Teknik Elektro - Prodi Teknik Robotika dan Kecerdasan Buatan
 Institution : Politeknik Negeri Batam
 Description : Zero-dependency IEEE-754 double-precision solver verifying
@@ -1041,11 +1167,13 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 4. **Branch B Factor-of-4^(-1) Algebraic Substitution Convention:**
    - In Branch B, the live manuscript omits the factor $4$ multiplier in Step 3 (Paragraph `P35`: $\pi = \frac{m^2 - \Delta L}{m^2}$) and retains $4^{-1}$ once in Step 7 (Paragraph `P45`: $\Delta L = [1 - (4^{-1} \times 15 \times \sigma \times I_\zeta^{-1})] \times m^2$). While this direct substitution preserves exact geometric equality with $(1 - \frac{\pi}{4}) \times m^2$, formal notation conventions and the induced factor-of-4 shift in $\sigma$ between `P33` and `P37–P45` are highlighted for future publication refinement.
 5. **Einstein Tensor Coupling & Natural Unit Convention (`P46–P52`) (`[Repository Gap — Author Clarification Required]`):**
-   - Paragraphs `P46–P52` substitute $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ into $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ to obtain $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$. The manuscript implicitly assumes natural units $c = 1$ (omitting the SI $c^{-4}$ factor in $\frac{8\pi G}{c^4}$) and leaves unstated the physical PDE derivation coupling Navier–Stokes fluid variables ($\mathbf{u}, p, \nu, \sigma, I_\zeta$) to spacetime curvature $G_{\mu\nu}$ and stress–energy $T_{\mu\nu}$. Furthermore, `solver.py` currently verifies Branch A closure only, leaving numerical verification modules for Branch B and `P46–P52` to future work.
-6. **Standalone License File Absence (`[Repository Gap — Author Clarification Required]`):**
+   - Paragraphs `P46–P52` substitute $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ into $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ to obtain $G_{\mu\nu} = 30 \times \sigma \times I_\zeta^{-1} G T_{\mu\nu}$. The manuscript implicitly assumes natural units $c = 1$ (omitting the SI $c^{-4}$ factor in $\frac{8\pi G}{c^4}$) and leaves unstated the physical PDE derivation coupling Navier–Stokes fluid variables ($\mathbf{u}, p, \nu, \sigma, I_\zeta$) to spacetime curvature $G_{\mu\nu}$ and stress–energy $T_{\mu\nu}$. Furthermore, `solver.py` currently verifies Branch A closure only, leaving numerical verification modules for Branch B, `P46–P52`, and `P54–P68` to future work.
+6. **Heisenberg Uncertainty Principle Coupling & Normalization (`P54–P68`) (`[Repository Gap — Author Clarification Required]`):**
+   - Paragraphs `P54–P68` substitute $\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$ into $(\Delta x \times \Delta p) \ge \frac{\hbar}{2} = \frac{h}{4\pi}$, canceling $4 \times 4^{-1} = 1$, adopting explicit $I_\zeta$ notation (`P66–P68`), and arriving at $(\Delta x \times \Delta p) \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$. Under full-circle manuscript normalization ($\sigma_{\text{manuscript}} = \frac{4\pi}{15} I_\zeta < 0$), both negative signs cancel cleanly to recover $\frac{h}{4\pi} = \frac{\hbar}{2} > 0$, whereas substituting quadrant-normalized $\sigma_{\text{quad}}$ inflates the bound by $4\times$ to $\frac{h}{\pi}$. No physical derivation or dimensional mapping in the manuscript links macroscopic fluid variables to quantum uncertainties $(\Delta x, \Delta p)$ or Planck constants $(h, \hbar)$.
+7. **Standalone License File Absence (`[Repository Gap — Author Clarification Required]`):**
    - The closing `## 📜 Lisensi & Hak Cipta Statement` links `[Lisensi MIT](LICENSE)`, whereas a standalone `LICENSE` text file is not currently present in the workspace root (`c:\Rumus\Samuel-Navier Stocks Equation Solution`).
-7. **Computational Validation Roadmap:**
-   - Future work by the author or independent researchers should address: (a) formulating boundary conditions on a three-dimensional compact domain $\Omega \subset \mathbb{R}^3$, (b) calibrating the stress parameter $\sigma$ against experimental Taylor-Couette or lid-driven cavity flow benchmarks, (c) establishing Sobolev space regularity bounds $H^1(\Omega)$ or $H^2(\Omega)$ for velocity fields governed by these algebraic boundary constraints, and (d) extending `solver.py` and `test_solver.py` to cover Branch B (`\Delta L`) and Einstein Tensor Extension (`P46–P52`) checks.
+8. **Computational Validation Roadmap:**
+   - Future work by the author or independent researchers should address: (a) formulating boundary conditions on a three-dimensional compact domain $\Omega \subset \mathbb{R}^3$, (b) calibrating the stress parameter $\sigma$ against experimental Taylor-Couette or lid-driven cavity flow benchmarks, (c) establishing Sobolev space regularity bounds $H^1(\Omega)$ or $H^2(\Omega)$ for velocity fields governed by these algebraic boundary constraints, and (d) extending `solver.py` and `test_solver.py` to cover Branch B ($\Delta L$), Einstein Tensor Extension (`P46–P52`), and Heisenberg Uncertainty Principle Extension (`P54–P68`) checks.
 
 ---
 
@@ -1053,13 +1181,13 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 ### A. Formal IEEE Citation Entry
 
-> **[1]** S. H. Omega, "Samuel – Navier Stocks Equation Solution," Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam, Batam, Kepulauan Riau, Indonesia, Technical Monograph, Nov. 2026.
+> **[1]** S. H. O. Purba, "Samuel – Navier Stocks Equation Solution," Department of Electrical Engineering (*Teknik Elektro*), Study Program in Robotics and Artificial Intelligence Engineering (*Prodi Teknik Robotika dan Kecerdasan buatan*), Politeknik Negeri Batam, Batam, Kepulauan Riau, Indonesia, Technical Monograph, Nov. 2026.
 
 ### B. BibTeX Citation Block
 
 ```bibtex
-@misc{Omega2026SamuelNavierStocks,
-  author       = {Omega, Samuel Hasiholan},
+@misc{Purba2026SamuelNavierStocks,
+  author       = {Purba, Samuel Hasiholan Omega},
   title        = {{Samuel -- Navier Stocks Equation Solution}},
   howpublished = {Department of Electrical Engineering (Teknik Elektro), Study Program in Robotics and Artificial Intelligence Engineering (Prodi Teknik Robotika dan Kecerdasan buatan), Politeknik Negeri Batam},
   address      = {Batam, Kepulauan Riau, Indonesia},
@@ -1073,7 +1201,7 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 *(Note: The primary manuscript contains no external bibliographic citations (`[Repository Gap — Author Clarification Required]`). The foundational mathematical and fluid dynamics works below are cataloged for contextual literature benchmarking.)*
 
-- **[1]** S. H. Omega, *Samuel – Navier Stocks Equation Solution*. Batam, Indonesia: Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam, 2026.
+- **[1]** S. H. O. Purba, *Samuel – Navier Stocks Equation Solution*. Batam, Indonesia: Teknik Elektro, Prodi Teknik Robotika dan Kecerdasan buatan, Politeknik Negeri Batam, 2026.
 - **[2]** C. L. Fefferman, "Existence and smoothness of the Navier–Stokes equation," in *The Millennium Prize Problems*, J. Carlson, A. Jaffe, and A. Wiles, Eds. Providence, RI, USA: Amer. Math. Soc., 2006, pp. 57–67.
 - **[3]** G. K. Batchelor and I. Proudman, "The large-scale structure of homogeneous turbulence," *Phil. Trans. R. Soc. Lond. A*, vol. 248, no. 949, pp. 369–405, 1956.
 - **[4]** E. Elizalde *et al.*, *Zeta Regularization Techniques with Applications*. Singapore: World Scientific, 1994.
@@ -1082,4 +1210,4 @@ In strict accordance with **IEEE Transactions** and **Scopus Q1** peer-review st
 
 ## 📜 Lisensi & Hak Cipta Statement
 
-Proyek ini didistribusikan di bawah **[Lisensi MIT](LICENSE)**. Hak Cipta © 2026 Samuel Hasiholan Omega, S. Tr. T. . Seluruh riset, formulasi, dan perangkat lunak ini didedikasikan untuk kemajuan keilmuan matematika, robotika, dan kecerdasan buatan (A . I) Indonesia.
+Proyek ini didistribusikan di bawah **[Lisensi MIT](LICENSE)**. Hak Cipta © 2026 Samuel Hasiholan Omega, S. Tr. T. .Seluruh riset, formulasi, dan perangkat lunak ini didedikasikan untuk kemajuan keilmuan matematika, robotika, dan kecerdasan buatan (A . I) Indonesia.

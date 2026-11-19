@@ -241,6 +241,8 @@ class TestSamuelNavierStokesSolver(unittest.TestCase):
           4. Broken Table of Contents '#anchor' slugs
           5. Mermaid syntax traps ('<br>', pipes inside node labels, '>' inside edge labels)
              that cause GitHub 'Unable to render rich display'
+          6. Emphasis-wrapped inline '$...$' or table inline math with '\\text{...}' spaces / '|'
+          7. Obsolete 'Pages 1–4' or 'Pages 1–5' references (must match 6-page PDF 'Pages 1–6')
         """
         with open("README.md", "r", encoding="utf-8") as f:
             content = f.read()
@@ -349,9 +351,40 @@ class TestSamuelNavierStokesSolver(unittest.TestCase):
             content,
             "Corrupted repository gap tag with internal suffix found in README.md!",
         )
-        # Ensure accurate 5-page PDF representation
-        self.assertIn("Pages 1–5", content, "README.md should accurately reference Pages 1–5 of the updated PDF")
+
+        # 7. Verify zero emphasis-wrapped inline '$...$' and zero table inline '\\text{...}' spaces or raw '|'
+        non_display = re.sub(r"(?m)^\$\$\r?\n.*?\r?\n\$\$$", "", non_code, flags=re.DOTALL)
+        for line_no, line in enumerate(non_display.splitlines(), start=1):
+            stripped_code = re.sub(r"`[^`\n]*`", "", line)
+            for bold_match in re.finditer(r"\*\*((?:(?!\*\*).)+?)\*\*", stripped_code):
+                self.assertIsNone(
+                    re.search(r"\$[^$\n]+\$", bold_match.group(1)),
+                    f"Line {line_no} wraps inline math in '**...**': {bold_match.group(0)}",
+                )
+            no_bold = re.sub(r"\*\*((?:(?!\*\*).)+?)\*\*", "", stripped_code)
+            no_bullet = re.sub(r"^\s*(?:>\s*)?[-*]\s+", "", no_bold)
+            for italic_match in re.finditer(r"\*([^*\n]+?)\*", no_bullet):
+                self.assertIsNone(
+                    re.search(r"\$[^$\n]+\$", italic_match.group(1)),
+                    f"Line {line_no} wraps inline math in '*...*': {italic_match.group(0)}",
+                )
+            if line.lstrip().startswith("|"):
+                for math_match in re.finditer(r"\$([^$\n]+)\$", stripped_code):
+                    expr = math_match.group(1)
+                    self.assertIsNone(
+                        re.search(r"\\text\{[^}]*\s[^}]*\}", expr),
+                        f"Line {line_no} table inline math contains \\text with spaces: ${expr}$",
+                    )
+                    self.assertNotIn(
+                        "|",
+                        expr,
+                        f"Line {line_no} table inline math contains pipe '|': ${expr}$",
+                    )
+
+        # 8. Ensure accurate 6-page PDF representation
+        self.assertIn("Pages 1–6", content, "README.md should accurately reference Pages 1–6 of the updated PDF")
         self.assertNotIn("Pages 1–4", content, "README.md contains obsolete Pages 1–4 reference")
+        self.assertNotIn("Pages 1–5", content, "README.md contains obsolete Pages 1–5 reference")
 
 
 if __name__ == "__main__":
