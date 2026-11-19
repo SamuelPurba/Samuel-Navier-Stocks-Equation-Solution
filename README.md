@@ -639,7 +639,7 @@ $$
 $$
 
 #### Step H8 — Negative-Exponent Inversion to Final Bound (P68)
-- **Penjelasan Mudah:** Memindahkan faktor penyebut $(15 \times \sigma)$ dan $I_\zeta^{-1}$ ke pembilang melalui inversi pangkat negatif sehingga diperoleh pertidaksamaan penutup bebas-$\pi$.
+- **Penjelasan Mudah:** Memindahkan faktor penyebut $(15 \times \sigma)$ dan $I_\zeta^{-1}$ ke pembilang melalui inversi pangkat negatif sehingga diperoleh pertidaksamaan penutup bebas-($\pi$).
 - **Bentuk Ringkas:** $\Delta x \times \Delta p \ge h \times (15 \times \sigma)^{-1} \times I_\zeta$
 - **Bentuk Lengkap Manuskrip:**
 
