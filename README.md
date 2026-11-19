@@ -305,7 +305,7 @@ $$
 - *Standard Enforced:* Rather than artificially altering the author's text by inserting $4 \times$ into `P35–P41`, this documentation preserves the author's verbatim OMML equations while transparently auditing both the single-($4^{-1}$) closure and the factor-of-4 $\sigma$-scaling shift.
 
 #### 5. Analytic, Tensor Arithmetic, and PDE Coupling Audit (P09–P52) (Discrepancy 3)
-- **Zeta Regularization & Symbolic Kernel (`P09–P52`):** The definite integral $I_\zeta = \int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr$ is bounded at the Ramanujan summation value $\zeta(-1) = -\frac{1}{12}$. The manuscript does not define a physical coordinate transformation explaining why radial distance $r = \sqrt{x^2+y^2} \ge 0$ is integrated along $[0, -\frac{1}{12}]$, nor does it define the functional form of $f(r)$ (`solver.py` uses the canonical Gaussian test kernel $f(r) = \exp(-r^2)$).
+- **Zeta Regularization & Symbolic Kernel (`P09–P52`):** The definite integral $I_\zeta = \int_{0}^{\zeta(s) = -1/12} r^4 f(r)\,dr$ is bounded at the Ramanujan summation value $\zeta(-1) = -\frac{1}{12}$. The manuscript does not define a physical coordinate transformation explaining why radial distance $r = \sqrt{x^2+y^2} \ge 0$ is integrated along $[0, -\frac{1}{12}]$, nor does it define the functional form of $f(r)$ (`solver.py` uses the canonical Gaussian test kernel ($f(r) = \exp(-r^2)$)).
 - **Einstein Tensor Extension Arithmetic (`P46–P52`):** Substituting `P48` ($\pi = (4^{-1} \times 15 \times \sigma) \times I_\zeta^{-1}$) into `P46` ($G_{\mu\nu} = 8\pi G T_{\mu\nu}$) yields `P50`, whose scalar prefactor simplifies exactly by rational arithmetic:
 
 $$
