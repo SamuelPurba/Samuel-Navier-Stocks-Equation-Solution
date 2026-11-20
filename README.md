@@ -689,7 +689,7 @@ For complete archival traceability, the exact verbatim formulas extracted from `
 | **P52** | Einstein Ext. | Step E4: Reduced Tensor Coupling Closure | `G_{μν} = (((30 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1) G T_{μν})` |
 | **P54** | Heisenberg Ext. | Step H1: Closed-Form $\pi$ Restatement | `π = ((4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1)` |
 | **P56** | Heisenberg Ext. | Step H2: Heisenberg Uncertainty Baseline | `(∆x × ∆p) ≥ (ℏ / 2)` |
-| **P58** | Heisenberg Ext. | Step H3: Reduced Planck Expansion ($\hbar = h/(2($\pi))) | `(∆x × ∆p) ≥ (h / {2 × (2 × π)})` |
+| **P58** | Heisenberg Ext. | Step H3: Reduced Planck Expansion ($\hbar = h/(2(\pi))$) | `(∆x × ∆p) ≥ (h / {2 × (2 × π)})` |
 | **P60** | Heisenberg Ext. | Step H4: Denominator Reduction to $4\pi$ | `(∆x × ∆p) ≥ (h / (4 × π))` |
 | **P62** | Heisenberg Ext. | Step H5: Substitution of Closed-Form $\pi$ | `(∆x × ∆p) ≥ (h / (4 × ((4^-1 × 15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1)))` |
 | **P64** | Heisenberg Ext. | Step H6: Exact $4 \times 4^{-1} = 1$ Cancellation | `(∆x × ∆p) ≥ (h / ((15 × σ) × (∫_0^(ζ(s)=-1/12) r^4 f(r) dr)^-1))` |
