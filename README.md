@@ -100,7 +100,7 @@ The table below catalogs every mathematical symbol appearing in [`Samuel-Navier 
 | $c$ | `(Implicit in P46)` | $\mathbb{R}^+$ | Speed of light in vacuum; $c = 1$ natural units implied vs. SI factor $c^{-4}$ in $8\pi G c^{-4} T_{\mu\nu}$ | `[Repository Gap — Author Clarification Required]` (Natural units vs. omitted $c^{-4}$ unstated) |
 | $\Delta x$ | `∆x` | $\mathbb{R}^+$ | Position uncertainty factor in Heisenberg inequality extension (`P56–P68`) | `[Repository Gap — Author Clarification Required]` (Quantum-fluid coupling and units unstated) |
 | $\Delta p$ | `∆p` | $\mathbb{R}^+$ | Momentum uncertainty factor in Heisenberg inequality extension (`P56–P68`) | `[Repository Gap — Author Clarification Required]` (Quantum-fluid coupling and units unstated) |
-| $\hbar$ | `ℏ` | $\mathbb{R}^+$ | Reduced Planck constant (($h$) / (2 ($\pi$))) in baseline uncertainty bound (`P56`) | `[Repository Gap — Author Clarification Required]` (Physical scale link to Navier–Stokes unstated) |
+| $\hbar$ | `ℏ` | $\mathbb{R}^+$ | Reduced Planck constant ($h / (2 ($\pi$))) in baseline uncertainty bound (`P56`) | `[Repository Gap — Author Clarification Required]` (Physical scale link to Navier–Stokes unstated) |
 | $h$ | `h` | $\mathbb{R}^+$ | Planck constant expanded via $\hbar = h / (2 \times \pi)$ across `P58–P68` | `[Repository Gap — Author Clarification Required]` (Requires $(15 \times \sigma)^{-1} \times I_\zeta$ dimensionless) |
 | $\mathbf{u}, p, \nu$ | `u, p, nu` | Vector / Scalar | Velocity field, pressure field, kinematic viscosity of Navier–Stokes PDE | `[Repository Gap — Author Clarification Required]` (Continuum PDE coupling unstated) |
 
