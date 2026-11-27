@@ -721,9 +721,7 @@ flowchart LR
 - **Parameter Input:** `--branch` (`A`, `B`, `E`, `H`, `D5`), `--equation` (`1..7`, `E1..E4`, `H0..H7`, `D1..D5`, atau `P07..P81`), `--domain` (`robotics`, `fluid-dynamics`, `signal-processing`).
 - **Logika Eksekusi:**
   1. Mengambil persamaan penutup acuan, misalnya Cabang A Langkah 7 (`P29`):
-     ($$
-     \Delta_{(P_{(Square)} - P_{(Circle)})} = \left[\left(4 - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = \left(-\frac{1}{12}\right)} \left(r^{4} f(r)\,dr\right)\right)^{(-1)}\right)\right) \times a\right]
-     $$)
+     ($$\Delta_{(P_{(Square)} - P_{(Circle)})} = \left[\left(4 - \left(\left(4^{(-1)} \times 15 \times \sigma\right) \times \left(\int_{0}^{\zeta(s) = \left(-\frac{1}{12}\right)} \left(r^{4} f(r)\,dr\right)\right)^{(-1)}\right)\right) \times a\right]$$)
   2. Memetakan variabel simbolik ke konsep teknik nyata pada tiga domain teruji sambil menjaga batas `[Repository Gap — Author Clarification Required]`.
 
 - **Contoh 1 — Domain Robotika dan Sistem Otonom (`--domain=robotics`):**
