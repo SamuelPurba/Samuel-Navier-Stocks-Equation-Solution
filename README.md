@@ -755,9 +755,7 @@ flowchart LR
 
    Sebaliknya, `solver.py` (baris `102` dan `170`) memakai normalisasi satu kuadran Kartesius ($8/4 = 2$, $\frac{2}{30} = \frac{1}{15}$):
 
-   $$
-   \sigma_{\text{quad}} = 4^{(-1)} \times \sigma_{\text{manuscript}} = \frac{\pi \times I_\zeta}{15} \iff \pi = \left(15 \times \sigma_{\text{quad}}\right) \times I_\zeta^{(-1)}
-   $$
+   ($$\sigma_{\text{quad}} = 4^{(-1)} \times \sigma_{\text{manuscript}} = \frac{\pi \times I_\zeta}{15} \iff \pi = \left(15 \times \sigma_{\text{quad}}\right) \times I_\zeta^{(-1)}$$)
 
    Keduanya ekuivalen secara matematis selama rasio $\sigma_{\text{quad}} = 4^{-1} \times \sigma_{\text{manuscript}}$ (atau $\sigma_{\text{manuscript}} = 4 \times \sigma_{\text{quad}}$) dipertahankan. Sebagai catatan transparansi kode repositori, skrip visualisasi opsional `generate_simulation.py` pada baris `130` (`sigma_ms = sigma_quad / 4.0`) dan baris `808` (`σ_quad = 4 × σ_ms`) memuat label resiprokal terbalik dibandingkan konvensi matematis `solver.py`; dokumen ini menegaskan `solver.py` dan persamaan manuskrip sebagai rujukan kebenaran numerik yang sah.
 
