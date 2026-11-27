@@ -751,9 +751,7 @@ flowchart LR
 
    yang disederhanakan pada `P15` dan `P39` (membagi $8$ dan $30$ dengan $2$), menghasilkan rekonstruksi pada `P25` dan `P43`:
 
-   $$
-   \pi = \left(4^{(-1)} \times 15 \times \sigma_{\text{manuscript}}\right) \times I_\zeta^{(-1)}
-   $$
+   ($$\pi = \left(4^{(-1)} \times 15 \times \sigma_{\text{manuscript}}\right) \times I_\zeta^{(-1)}$$)
 
    Sebaliknya, `solver.py` (baris `102` dan `170`) memakai normalisasi satu kuadran Kartesius ($8/4 = 2$, $\frac{2}{30} = \frac{1}{15}$):
 
