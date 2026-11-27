@@ -740,9 +740,7 @@ flowchart LR
 1. **Audit Pengelompokan Langkah 3 (`P11`):**
    Dari $\Delta P = (4 - \pi) \times a = (4 \times a) - (\pi \times a)$, isolasi $\pi$ secara homogen menuntut pengelompokan eksplisit:
 
-   $$
-   \pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}
-   $$
+   ($$\pi = \frac{(4 \times a) - \Delta_{(P_{(Square)} - P_{(Circle)})}}{a} = 4 - \frac{\Delta_{(P_{(Square)} - P_{(Circle)})}}{a}$$)
 
    Ekspresi manuskrip `P11`, `P19`, dan `P21` secara tepat menulis `((4 × a) - ∆_P) / a` sehingga kehomogenan dimensi tetap terjaga untuk setiap $a \neq 0$, berbeda dengan draf OCR awal tanpa tanda kurung `(4 - ∆_P)/a`.
 
