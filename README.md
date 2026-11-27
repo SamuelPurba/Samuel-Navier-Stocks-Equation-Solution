@@ -747,9 +747,7 @@ flowchart LR
 2. **Transisi Koefisien** $\frac{8\pi}{30} \to \frac{4}{15}$ **dan Invarian Normalisasi Kuadran** `solver.py`:
    Pada `P09` dan `P33`, manuskrip mendefinisikan kopling lingkaran penuh sebagai:
 
-   $$
-   \sigma_{\text{manuscript}} = \left(\frac{8 \times \pi}{30}\right) \times I_\zeta = \frac{4\pi}{15} \times I_\zeta
-   $$
+   ($$\sigma_{\text{manuscript}} = \left(\frac{8 \times \pi}{30}\right) \times I_\zeta = \frac{4\pi}{15} \times I_\zeta$$)
 
    yang disederhanakan pada `P15` dan `P39` (membagi $8$ dan $30$ dengan $2$), menghasilkan rekonstruksi pada `P25` dan `P43`:
 
